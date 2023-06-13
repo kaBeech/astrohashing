@@ -30,7 +30,7 @@ const getStarCoordinates = (rawStar: string): Coordinates => {
   return starCoordinates;
 };
 
-const getStarCatalogue = () => {
+const getStarCatalog = () => {
   const starsFormatted: Star[] = [];
   const starNames: string[] = [];
 
@@ -49,4 +49,4 @@ const getStarCatalogue = () => {
   return starNames;
 };
 
-export default getStarCatalogue;
+export default getStarCatalog;
