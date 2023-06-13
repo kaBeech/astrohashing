@@ -25,7 +25,7 @@ export async function upsertStar(star: Star) {
   } else {
     const ok = await kv.atomic()
       .check(oldStar)
-      .delete(["user_by_email", oldStar.value.email])
+      .delete(["star", oldStar.value.name])
       .set(starKey, star)
       .commit();
     if (!ok) throw new Error("Something went wrong.");
