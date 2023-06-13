@@ -4,7 +4,7 @@ import {
   helpers,
   Router,
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
-import { getStarCrossingDataByBirthdays } from "./getStarCrossingDataByBirthdays.ts";
+import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
 
 const { getQuery } = helpers;
 const router = new Router();
