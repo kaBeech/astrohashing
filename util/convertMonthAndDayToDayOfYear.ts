@@ -38,8 +38,11 @@ const convertMonthAndDayToDayOfYear = (month: number, day: number): number => {
       break;
     default:
       throw new Error(
-        "Invalid month - please submit a number between 1 and 12",
+        "Invalid month - please input a number between 1 and 12",
       );
+  }
+  if (day < 1 || day > 31) {
+    throw new Error("Invalid day - please input a number between 1 and 31");
   }
   dayOfYear += day;
   return dayOfYear;
