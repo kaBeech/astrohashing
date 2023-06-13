@@ -1,21 +1,18 @@
-import { Coordinates } from "./types";
-
-  /**
-   * Open KV.
-   */
+/**
+ * Open KV.
+ */
   
   const kv = await Deno.openKv();
-  
-  /**
-   * Get StarCrossing.
-   * @param birthdays
-   * @returns
-   */
-  
-  export async function getStarCrossingDataByBirthdays(birthdays: string): Promise<Coordinates> {
-    // Derive starCrossing from birthdays
-    const starCrossing = birthdays + birthdays as unknown as Coordinates
-    const key = ["starCrossing", starCrossing];
-    return (await kv.get(key)).value as Coordinates;
+
+/**
+ * Get all stars.
+ * @returns <Star>
+ */
+
+export async function getAllStars() {
+    const stars = [];
+    for await (const res of kv.list({ prefix: ["star"] })) {
+      stars.push(res.value);
+    }
+    return stars;
   }
-  

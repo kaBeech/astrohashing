@@ -22,3 +22,5 @@ const getDistanceBetweenCoordinates = (
   );
   return distance;
 };
+
+export default getDistanceBetweenCoordinates

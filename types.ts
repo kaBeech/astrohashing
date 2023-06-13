@@ -4,4 +4,16 @@ type Declination = [number, number, number];
 
 type Coordinates = [Ascension, Declination];
 
-export type { Ascension, Coordinates, Declination };
+interface Star {
+    coordinates: Coordinates,
+    name: string,
+    commonName: string | null
+}
+
+interface StarCrossingData {
+    coordinates: Coordinates,
+    infoURL: string,
+    skyMapURL: string
+}
+
+export type { Ascension, Coordinates, Declination, StarCrossingData, Star };
