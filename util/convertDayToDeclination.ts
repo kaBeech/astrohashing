@@ -9,7 +9,7 @@ const convertDayToDeclination = (
   const hours: number = Math.floor(treatedDeclination);
   treatedDeclination = (treatedDeclination - hours) * 100 / 60;
   const minutes: number = Math.floor(treatedDeclination);
-  treatedDeclination = (treatedDeclination - minutes) * 100 / 60;
+  treatedDeclination = ((treatedDeclination - minutes) * 100 / 60) - 90;
   const seconds: number = Math.floor(treatedDeclination);
   const declination: [number, number, number] = [hours, minutes, seconds];
   return declination;
