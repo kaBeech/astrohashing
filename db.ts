@@ -25,7 +25,7 @@ export async function upsertStar(star: Star) {
   } else {
     const ok = await kv.atomic()
       .check(oldStar)
-      .delete(["user_by_email", oldStar.value.email])
+      .delete(["star", oldStar.value.name])
       .set(starKey, star)
       .commit();
     if (!ok) throw new Error("Something went wrong.");
@@ -51,9 +51,9 @@ export async function getAllStars() {
  * @param commonName
  */
 
-export async function updateStarAndCommonName(star: Star, commonName: string) {
+export async function updateStarCommonName(star: Star, commonName: string) {
+  star.commonName = commonName;
   const starKey = ["star", star.name];
-  const commonNameKey = ["star_common_name", star.name];
 
   const oldStar = await kv.get<Star>(starKey);
 
@@ -62,8 +62,7 @@ export async function updateStarAndCommonName(star: Star, commonName: string) {
   } else {
     const ok = await kv.atomic()
       .check(oldStar)
-      .set(starKey, star.name)
-      .set(commonNameKey, commonName)
+      .set(starKey, star)
       .commit();
     if (!ok) throw new Error("Something went wrong.");
   }
