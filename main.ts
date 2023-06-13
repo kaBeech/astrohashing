@@ -15,6 +15,11 @@ router
     ctx.response.body = await getStarCrossingDataByBirthdays(birthdays);
   });
 
+router
+  .get("/", (ctx: Context) => {
+    ctx.response.body = "Successful Get request!";
+  });
+
 const app = new Application();
 
 app.use(router.routes());
