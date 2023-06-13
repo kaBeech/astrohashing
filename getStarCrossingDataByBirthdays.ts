@@ -46,14 +46,15 @@ const getSkyMapURL = (starCrossing: Coordinates): string => {
 }
 
   export async function getStarCrossingDataByBirthdays(birthdays: string): Promise<StarCrossingData> {
-    // Convert birthdays to coordinates
     const starCrossing: Coordinates = getStarCrossing(birthdays);
-    // Find the closest star to those coordinates
     const closestStar: Star = getClosestStar(starCrossing);
-    // Construct URLs
     const infoURL = getInfoURL(closestStar);
     const skyMapURL = getSkyMapURL(starCrossing);
-    const starCrossingData = birthdays + birthdays as unknown as StarCrossingData
-    return starCrossingData as StarCrossingData;
+    const starCrossingData: StarCrossingData = {
+        coordinates: starCrossing,
+        infoURL,
+        skyMapURL
+    }
+    return starCrossingData
   }
   
