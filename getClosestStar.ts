@@ -1,4 +1,4 @@
-import { getAllStars, updateStarAndCommonName } from "./db.ts";
+import { getAllStars, updateStarCommonName } from "./db.ts";
 import getInfoURL from "./getInfoURL.ts";
 import { Coordinates, Star } from "./types.ts";
 import getDistanceBetweenCoordinates from "./util/getDistanceBetweenCoordinates.ts";
@@ -30,7 +30,7 @@ const getClosestStar = (starCrossing: Coordinates) => {
     let commonName = "See Comment"; // fetch the HTML from the infoURL
     commonName = commonName.split("h1")[1];
     commonName = commonName.slice(1, -2);
-    updateStarAndCommonName(closestStar, commonName);
+    updateStarCommonName(closestStar, commonName);
     closestStar.commonName = commonName;
   }
   return closestStar;
