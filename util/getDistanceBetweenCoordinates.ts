@@ -4,6 +4,7 @@ const getDistanceBetweenCoordinates = (
   coordinates1: Coordinates,
   coordinates2: Coordinates,
 ): number => {
+  // Check math
   const treatedCoordinates1Ascension = (coordinates1[0][0] * 3600) +
     (coordinates1[0][1] * 60) + coordinates1[0][2];
   const treatedCoordinates1Declination = (coordinates1[1][0] * 3600) +
