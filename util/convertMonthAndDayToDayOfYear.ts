@@ -44,3 +44,5 @@ const convertMonthAndDayToDayOfYear = (month: number, day: number): number => {
   dayOfYear += day;
   return dayOfYear;
 };
+
+export default convertMonthAndDayToDayOfYear;

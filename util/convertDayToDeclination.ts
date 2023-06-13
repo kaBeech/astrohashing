@@ -12,3 +12,5 @@ const convertDayToDeclination = (dayOfYear: number) => {
   const declination = [hours, minutes, seconds];
   return declination;
 };
+
+export default convertDayToDeclination;

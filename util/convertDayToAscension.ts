@@ -12,3 +12,5 @@ const convertDayToAscension = (dayOfYear: number) => {
   const ascension = [hours, minutes, seconds];
   return ascension;
 };
+
+export default convertDayToAscension;
