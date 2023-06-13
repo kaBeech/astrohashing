@@ -1,8 +1,25 @@
-export function add(a: number, b: number): number {
-  return a + b;
-}
+import {
+  Application,
+  Context,
+  helpers,
+  Router,
+} from "https://deno.land/x/oak@v12.4.0/mod.ts";
+import {
+  getStarCrossing,
+} from "./db.ts";
 
-// Learn more at https://deno.land/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
-}
+const { getQuery } = helpers;
+const router = new Router();
+
+router
+  .get("/star-crossings/:birthdays", async (ctx: Context) => {
+    const { birthdays } = getQuery(ctx, { mergeParams: true });
+    ctx.response.body = await getStarCrossing(birthdays);
+  })
+
+const app = new Application();
+
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+await app.listen({ port: 8000 });
