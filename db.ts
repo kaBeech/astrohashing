@@ -8,6 +8,32 @@ import { Star } from "./types";
   const kv = await Deno.openKv();
 
 /**
+ * Upsert star.
+ * @param star
+ */
+
+export async function upsertStar(star: Star) {
+    const starKey = ["star", star.name];
+  
+    const oldStar = await kv.get<Star>(starKey);
+  
+    if (!oldStar.value) {
+      const ok = await kv.atomic()
+        .check(oldStar)
+        .set(starKey, star)
+        .commit();
+      if (!ok) throw new Error("Something went wrong.");
+    } else {
+      const ok = await kv.atomic()
+        .check(oldStar)
+        .delete(["user_by_email", oldStar.value.email])
+        .set(starKey, star)
+        .commit();
+      if (!ok) throw new Error("Something went wrong.");
+    }
+  }
+
+/**
  * Get all stars.
  * @returns <Star>
  */
