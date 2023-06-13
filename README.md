@@ -1,5 +1,5 @@
 # StarCrossed
-A tool for finding a special place in the universe
+A tool for finding a special spot in the universe
 
 Created for the Deno KV Hackaton
 
