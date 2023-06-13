@@ -46,7 +46,7 @@ export async function getAllStars() {
 }
 
 /**
- * Update star and commonName.
+ * Update star's commonName.
  * @param star
  * @param commonName
  */
