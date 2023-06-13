@@ -1,15 +1,15 @@
 const dayAscensionCoefficient = 24 * 60 * 60;
 
-const convertDayToAscension = (dayOfYear: number) => {
-  const rawAscension = (dayOfYear / 366) * dayAscensionCoefficient;
-  let treatedAscension = rawAscension / 24;
+const convertDayToAscension = (dayOfYear: number): [number, number, number] => {
+  const rawAscension: number = (dayOfYear / 366) * dayAscensionCoefficient;
+  let treatedAscension: number = rawAscension / 24;
   //   check these for accuracy:
-  const hours = Math.floor(treatedAscension);
+  const hours: number = Math.floor(treatedAscension);
   treatedAscension = (treatedAscension - hours) * 100 / 60;
-  const minutes = Math.floor(treatedAscension);
+  const minutes: number = Math.floor(treatedAscension);
   treatedAscension = (treatedAscension - minutes) * 100 / 60;
-  const seconds = treatedAscension.toPrecision(4);
-  const ascension = [hours, minutes, seconds];
+  const seconds: number = Math.floor(treatedAscension);
+  const ascension: [number, number, number] = [hours, minutes, seconds];
   return ascension;
 };
 

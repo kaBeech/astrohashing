@@ -1,15 +1,17 @@
 const dayDeclinationCoefficient = 180 * 60 * 60;
 
-const convertDayToDeclination = (dayOfYear: number) => {
-  const rawDeclination = (dayOfYear / 366) * dayDeclinationCoefficient;
+const convertDayToDeclination = (
+  dayOfYear: number,
+): [number, number, number] => {
+  const rawDeclination: number = (dayOfYear / 366) * dayDeclinationCoefficient;
   let treatedDeclination = rawDeclination / 180;
   //   check these for accuracy:
-  const hours = Math.floor(treatedDeclination);
+  const hours: number = Math.floor(treatedDeclination);
   treatedDeclination = (treatedDeclination - hours) * 100 / 60;
-  const minutes = Math.floor(treatedDeclination);
+  const minutes: number = Math.floor(treatedDeclination);
   treatedDeclination = (treatedDeclination - minutes) * 100 / 60;
-  const seconds = treatedDeclination.toPrecision(4);
-  const declination = [hours, minutes, seconds];
+  const seconds: number = Math.floor(treatedDeclination);
+  const declination: [number, number, number] = [hours, minutes, seconds];
   return declination;
 };
 
