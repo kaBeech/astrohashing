@@ -5,6 +5,7 @@ import {
   Router,
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
 import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
+import { getAllStars } from "./db.ts";
 
 const { getQuery } = helpers;
 const router = new Router();
@@ -18,6 +19,11 @@ router
 router
   .get("/", (ctx: Context) => {
     ctx.response.body = "Successful Get request!";
+  });
+
+router
+  .get("/star-catalog", async (ctx: Context) => {
+    ctx.response.body = await getAllStars();
   });
 
 const app = new Application();
