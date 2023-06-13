@@ -1,4 +1,4 @@
 # StarCrossed
-A tool for finding a romantic spot in the universe
+A tool for finding a special place in the universe
 
 Created for the Deno KV Hackaton
