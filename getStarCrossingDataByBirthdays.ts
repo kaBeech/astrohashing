@@ -52,7 +52,7 @@ const getSkyMapURL = (starCrossing: Coordinates): string => {
     const closestStar: Star = getClosestStar(starCrossing);
     // Construct URLs
     const infoURL = getInfoURL(closestStar);
-    const skyMapURL = (starCrossing);
+    const skyMapURL = getSkyMapURL(starCrossing);
     const starCrossingData = birthdays + birthdays as unknown as StarCrossingData
     return starCrossingData as StarCrossingData;
   }
