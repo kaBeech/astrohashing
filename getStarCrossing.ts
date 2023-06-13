@@ -3,6 +3,8 @@ import convertMonthAndDayToDayOfYear from "./util/convertMonthAndDayToDayOfYear.
 import convertDayToAscension from "./util/convertDayToAscension.ts";
 import convertDayToDeclination from "./util/convertDayToDeclination.ts";
 
+// birthdays is expected to be a pair or birthdays in this format: 'yyyy-mm-dd,yyyy-mm-dd'
+// Year in birthdays is unused
 const getStarCrossing = (birthdays: string) => {
   const birthdaysArray = birthdays.split(",") as [string, string];
   const birthday1 = birthdaysArray[0].split("-") as [string, string, string];
