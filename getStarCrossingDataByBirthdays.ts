@@ -1,4 +1,4 @@
-import { getAllStars } from "./db";
+import { getAllStars, updateStarAndCommonName } from "./db";
 import { Coordinates, Star, StarCrossingData } from "./types";
 import convertMonthAndDayToDayOfYear from "./util/convertMonthAndDayToDayOfYear";
 import convertDayToAscension from "./util/convertDayToAscension";
@@ -29,6 +29,14 @@ const getClosestStar = (starCrossing) => {
         throw new Error("No stars found");
         
     }
+    if (closestStar.commonName === null) {
+        const infoURL = getInfoURL(closestStar);
+        let commonName = "See Comment" // fetch the HTML from the infoURL
+        commonName = commonName.split("h1")[1];
+        commonName = commonName.slice(1, -2);
+        updateStarAndCommonName(closestStar, commonName);
+        closestStar.commonName = commonName;
+    }
     return closestStar
 }
 
@@ -53,7 +61,8 @@ const getSkyMapURL = (starCrossing: Coordinates): string => {
     const starCrossingData: StarCrossingData = {
         coordinates: starCrossing,
         infoURL,
-        skyMapURL
+        skyMapURL,
+        closestStarCommonName: String(closestStar.commonName)
     }
     return starCrossingData as StarCrossingData;
   }

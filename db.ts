@@ -1,6 +1,9 @@
 /**
  * Open KV.
  */
+
+import { Star } from "./types";
+
   
   const kv = await Deno.openKv();
 
@@ -15,4 +18,28 @@ export async function getAllStars() {
       stars.push(res.value);
     }
     return stars;
+  }
+
+/**
+ * Update star and commonName.
+ * @param star
+ * @param commonName
+ */
+
+export async function updateStarAndCommonName(star: Star, commonName: string) {
+    const starKey = ["star", star.name];
+    const commonNameKey = ["star_common_name", star.name];
+  
+    const oldStar = await kv.get<Star>(starKey);
+  
+    if (!oldStar.value) {
+        throw new Error(`Star ${star.name} not found`);
+    } else {
+      const ok = await kv.atomic()
+        .check(oldStar)
+        .set(starKey, star.name)
+        .set(commonNameKey, commonName)
+        .commit();
+      if (!ok) throw new Error("Something went wrong.");
+    }
   }

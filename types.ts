@@ -13,7 +13,8 @@ interface Star {
 interface StarCrossingData {
     coordinates: Coordinates,
     infoURL: string,
-    skyMapURL: string
+    skyMapURL: string,
+    closestStarCommonName: string
 }
 
 export type { Ascension, Coordinates, Declination, StarCrossingData, Star };
