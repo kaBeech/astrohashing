@@ -5,6 +5,7 @@ const getDistanceBetweenCoordinates = (
   coordinates2: Coordinates,
 ): number => {
   // Check math
+  // Update calculation for Great Circle Distance (instead of Euclidean distance)
   const treatedCoordinates1Ascension = (coordinates1[0][0] * 3600) +
     (coordinates1[0][1] * 60) + coordinates1[0][2];
   const treatedCoordinates1Declination = (coordinates1[1][0] * 3600) +
