@@ -1,6 +1,8 @@
+import { Ascension } from "./types";
+
 const dayAscensionCoefficient = 24 * 60 * 60;
 
-const convertDayToAscension = (dayOfYear: number): [number, number, number] => {
+const convertDayToAscension = (dayOfYear: number): Ascension => {
   const rawAscension: number = (dayOfYear / 366) * dayAscensionCoefficient;
   let treatedAscension: number = rawAscension / 24;
   //   check these for accuracy:
@@ -9,7 +11,7 @@ const convertDayToAscension = (dayOfYear: number): [number, number, number] => {
   const minutes: number = Math.floor(treatedAscension);
   treatedAscension = (treatedAscension - minutes) * 100 / 60;
   const seconds: number = Math.floor(treatedAscension);
-  const ascension: [number, number, number] = [hours, minutes, seconds];
+  const ascension: Ascension = [hours, minutes, seconds];
   return ascension;
 };
 
