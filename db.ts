@@ -1,4 +1,4 @@
-import { Coordinates } from "./util/types";
+import { Coordinates } from "./types";
 
   /**
    * Open KV.
@@ -12,7 +12,7 @@ import { Coordinates } from "./util/types";
    * @returns
    */
   
-  export async function getStarCrossing(birthdays: string): Promise<Coordinates> {
+  export async function getStarCrossingDataByBirthdays(birthdays: string): Promise<Coordinates> {
     // Derive starCrossing from birthdays
     const starCrossing = birthdays + birthdays as unknown as Coordinates
     const key = ["starCrossing", starCrossing];

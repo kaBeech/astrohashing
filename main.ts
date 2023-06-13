@@ -5,7 +5,7 @@ import {
   Router,
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
 import {
-  getStarCrossing,
+  getStarCrossingDataByBirthdays,
 } from "./db.ts";
 
 const { getQuery } = helpers;
@@ -14,7 +14,7 @@ const router = new Router();
 router
   .get("/star-crossings/:birthdays", async (ctx: Context) => {
     const { birthdays } = getQuery(ctx, { mergeParams: true });
-    ctx.response.body = await getStarCrossing(birthdays);
+    ctx.response.body = await getStarCrossingDataByBirthdays(birthdays);
   })
 
 const app = new Application();
