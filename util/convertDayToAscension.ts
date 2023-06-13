@@ -1,4 +1,4 @@
-import { Ascension } from "./types";
+import { Ascension } from "../types";
 
 const dayAscensionCoefficient = 24 * 60 * 60;
 

@@ -1,4 +1,4 @@
-import { Declination } from "./types";
+import { Declination } from "../types";
 
 const dayDeclinationCoefficient = 180 * 60 * 60;
 
