@@ -30,7 +30,7 @@ const getStarCoordinates = (rawStar: string): Coordinates => {
   return starCoordinates;
 };
 
-const getStarCatalog = () => {
+const getStarCatalog = (): Star[] => {
   const starsFormatted: Star[] = [];
   const starNames: string[] = [];
 
@@ -46,7 +46,7 @@ const getStarCatalog = () => {
     }
   }
 
-  return starNames;
+  return starsFormatted;
 };
 
 export default getStarCatalog;
