@@ -55,6 +55,6 @@ const getSkyMapURL = (starCrossing: Coordinates): string => {
         infoURL,
         skyMapURL
     }
-    return starCrossingData
+    return starCrossingData as StarCrossingData;
   }
   
