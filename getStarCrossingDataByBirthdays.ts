@@ -26,7 +26,7 @@ const getStarCrossing = (birthdays: string) => {
   return starCrossing;
 };
 
-const getClosestStar = (starCrossing) => {
+const getClosestStar = (starCrossing: Coordinates) => {
   let closestDistance: number | null = null;
   let closestStar: Star | null = null;
   for (const star of stars) {
