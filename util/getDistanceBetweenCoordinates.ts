@@ -1,4 +1,4 @@
-import { Coordinates } from "../types";
+import { Coordinates } from "../types.ts";
 
 const getDistanceBetweenCoordinates = (
   coordinates1: Coordinates,
