@@ -2,6 +2,7 @@ import { getAllStars, updateStarCommonName } from "./db.ts";
 import getInfoURL from "./getInfoURL.ts";
 import { Coordinates, Star } from "./types.ts";
 import getDistanceBetweenCoordinates from "./util/getDistanceBetweenCoordinates.ts";
+import getGreatCircleDistanceBetweenCoordinates from "./util/getGreatCircleDistanceBetweenCoordinates.ts";
 
 const stars: Star[] = await getAllStars();
 
@@ -9,15 +10,11 @@ const getClosestStar = (starCrossing: Coordinates) => {
   let closestDistance: number | null = null;
   let closestStar: Star | null = null;
   for (const star of stars) {
-    const distance = getDistanceBetweenCoordinates(
+    const distance = getGreatCircleDistanceBetweenCoordinates(
       star.coordinates,
-      starCrossing,
+      starCrossing
     );
-    if (
-      (closestDistance === null) ||
-      (distance <
-        closestDistance)
-    ) {
+    if (closestDistance === null || distance < closestDistance) {
       closestStar = star;
       closestDistance = distance;
     }
