@@ -46,6 +46,20 @@ export async function getAllStars() {
 }
 
 /**
+ * Delete all stars.
+ */
+
+export async function deleteAllStars() {
+  const starKeys = [];
+  for await (const res of kv.list({ prefix: ["star"] })) {
+    starKeys.push(res.key);
+  }
+  for (const starKey of starKeys as unknown as string[]) {
+    kv.delete(starKey);
+  }
+}
+
+/**
  * Update star's commonName.
  * @param star
  * @param commonName
