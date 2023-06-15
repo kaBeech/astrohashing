@@ -8,7 +8,7 @@ const updateCommonNamesAndInfoURLs = async () => {
   let i = 0;
   for (const star of starCatalog) {
     if (i < 10) {
-      if (star.commonName === null) {
+      if (star.infoURL === null) {
         const infoURL = getInfoURL(star.name);
         setTimeout(() => {}, 500);
         let commonName = await fetchAndParseHTML(infoURL);
