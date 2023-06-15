@@ -19,7 +19,7 @@ for (const star of starCatalog) {
 
 // Update commonNames and infoURLs
 
-// updateCommonNamesAndInfoURLs();
+updateCommonNamesAndInfoURLs();
 
 // Start server
 
