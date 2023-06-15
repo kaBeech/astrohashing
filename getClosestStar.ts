@@ -30,6 +30,15 @@ const getClosestStar = async (starCrossing: Coordinates) => {
       commonName = commonName.slice(1, -2);
       updateStarCommonName(closestStar, commonName);
       closestStar.commonName = commonName;
+    } else if (closestStar.altName !== null) {
+      const infoAltURL = getInfoURL(closestStar.altName);
+      commonName = await fetchAndParseHTML(infoAltURL);
+      if (commonName.indexOf("H1") > -1) {
+        commonName = commonName.split("H1")[1];
+        commonName = commonName.slice(1, -2);
+        updateStarCommonName(closestStar, commonName);
+        closestStar.commonName = commonName;
+      }
     } else {
       console.log("commonName not found in ISDB");
     }
