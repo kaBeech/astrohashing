@@ -4,6 +4,7 @@ import { Star } from "../types.ts";
 
 const star: Star = {
   name: `Wo 9846`,
+  altName: `HIP 18`,
   coordinates: [[0, 0, 1], [-4, 3, 13]],
   commonName: "TestStar",
 };
