@@ -1,5 +1,4 @@
 import getClosestStar from "./getClosestStar.ts";
-import getInfoURL from "./getInfoURL.ts";
 import getSkyMapURL from "./getSkyMapURL.ts";
 import getStarCrossing from "./getStarCrossing.ts";
 import { Coordinates, Star, StarCrossingData } from "./types.ts";
@@ -19,6 +18,7 @@ const getStarCrossingDataByBirthdays = async (
     coordinates: starCrossing,
     infoURL,
     skyMapURL,
+    closestStarName: String(closestStar.name),
     closestStarCommonName: String(closestStar.commonName),
   };
   return starCrossingData as StarCrossingData;
