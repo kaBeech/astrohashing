@@ -1,17 +1,18 @@
 # StarCrossed
 A tool for finding a special spot in the universe
 
-Created for the Deno [KV Hackaton] (https://deno.com/blog/deno-kv-hackathon)
+Created for the Deno [KV Hackaton](https://deno.com/blog/deno-kv-hackathon)
 
 ## About
-StarCrossed is inspired by [this xkcd comic] (https://xkcd.com/201/)
-![xkcd Christmas GPS comic](https://assets.digitalocean.com/articles/alligator/boo.svg "Christmas GPS")
+StarCrossed is inspired by [this xkcd comic:](https://xkcd.com/201/)
+
+![xkcd Christmas GPS comic](/public/xkcd_christmas_gps.png "Christmas GPS")
 
 The basic idea is to input the birthdays of you and a loved one, and return a set of celestial coordinates special to the two of you
 
 In addition to these coordinates, you'll also receive the name of the star closest to these coordinates (within 25 parsecs of Earth), a link to some more information about this star, and a link to an interactive map of the area your coordinates reside in
 
-If the location is too far away to visit, is too crowded when you get there, or isn't visible from your porch, fear not! Try entering in your birthdays in the reverse order - you'll get a different response this way
+If the location is out of your starship's range, is too crowded when you get there, or isn't visible from your porch, fear not! Try entering in your birthdays in the reverse order - you'll get a different response this way
 
 Have fun!
 
@@ -23,6 +24,18 @@ A frontend demo is available at https://www.kabeech.com/fun/star-crossed/. Howev
 
 To start the server: `deno tasks dev` in the root directory
 
+## Screenshots
+
+Frontend Demo Screenshot 1: Frontend Demo Screenshot 1
+![Frontend Demo Screenshot 1](/public/demoFrontendScreenshot1.png "Frontend Demo Screenshot 1")
+
+Frontend Demo Screenshot 2: 
+![Frontend Demo Screenshot 2](/public/demoFrontendScreenshot2.png "Frontend Demo Screenshot 1")
+
+Demo Info Link (external website) Screenshot:
+![Demo Info Link (external website) Screenshot](/public/demoInfoLink.png "Demo Info Link (external website) Screenshot]")
+
+
 ## Acknowledgements
 
-Very special thanks goes out to [The Internet Stellar Database] (http://www.stellar-database.com/), [skyMap.org] (http://www.wikisky.org/?locale=EN), and (https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/)[https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/]22
+Very special thanks goes out to [The Internet Stellar Database](http://www.stellar-database.com/), [skyMap.org](http://www.wikisky.org/?locale=EN), and [https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/](https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/)
