@@ -36,8 +36,8 @@ const updateCommonNamesAndInfoURLs = async () => {
           const fallbackURL = `https://duckduckgo.com/?q=!ducky+${star.name}`;
           updateStarInfoURL(star, fallbackURL);
         }
+        i++;
       }
-      i++;
     }
   }
 };
