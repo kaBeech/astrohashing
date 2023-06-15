@@ -3,8 +3,8 @@ import getStarCrossingDataByBirthdays from "../getStarCrossingDataByBirthdays.ts
 
 const birthdays = "1960-1-1,1960-7-2";
 
-Deno.test("inputting properly formatted birthdays returns proper starCrossingData", () => {
-  const result = getStarCrossingDataByBirthdays(birthdays);
+Deno.test("inputting properly formatted birthdays returns proper starCrossingData", async () => {
+  const result = await getStarCrossingDataByBirthdays(birthdays);
   const starCrossing = result.coordinates;
   const closestStarCommonName = result.closestStarCommonName;
   const infoURL = result.infoURL;
