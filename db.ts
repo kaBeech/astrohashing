@@ -50,12 +50,8 @@ export async function getAllStars() {
  */
 
 export async function deleteAllStars() {
-  const starKeys = [];
   for await (const res of kv.list({ prefix: ["star"] })) {
-    starKeys.push(res.key);
-  }
-  for (const starKey of starKeys as unknown as string[]) {
-    kv.delete(starKey);
+    kv.delete(res.key);
   }
 }
 
