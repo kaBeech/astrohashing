@@ -12,8 +12,8 @@ const getStarCrossingDataByBirthdays = async (
   if (closestStar.infoURL !== null) infoURL = closestStar.infoURL;
   else {
     infoURL = `https://duckduckgo.com/?q=!ducky+${
-      closestStar.name.split(" ")[0] + closestStar.name.split(" ")[1]
-    }`;
+      closestStar.name.split(" ")[0]
+    } ${closestStar.name.split(" ")[1]}`;
   }
   const skyMapURL = getSkyMapURL(starCrossing);
   const starCrossingData: StarCrossingData = {
