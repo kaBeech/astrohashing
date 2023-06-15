@@ -36,15 +36,15 @@ The main route is a get request on `/star-crossings/:birthdays`, which returns S
 
 The birthdays are expected to be in the following format: `yyyy-mm-dd,yyyy-mm-dd`
 
-For example, a get request to https://hungry-heron-21.deno.dev/star-crossings/1960-1-1,1960-4-17 will return StarCrossingData
+For example, a get request to [hungry-heron-21.deno.dev/star-crossings/1960-1-1,1960-4-17](https://hungry-heron-21.deno.dev/star-crossings/1960-1-1,1960-4-17) will return StarCrossingData
 
 The only other route currently implemented is `/star-catalog`, which lists all the stars loaded into KV
 
-A frontend demo is available at https://www.kabeech.com/fun/star-crossed/. However, the birthdays are currently hard-coded. I'll implement a form with date-pickers that can be used to hit the API for custom birthdays soon. For now I need to sleep
+A frontend demo is available at [kabeech.com/fun/star-crossed/](https://www.kabeech.com/fun/star-crossed/). However, the birthdays are currently hard-coded. I'll implement a form with date-pickers that can be used to hit the API for custom birthdays soon. For now I need to sleep
 
 To start the server: `deno tasks dev` in the root directory
 
 
 ## Acknowledgements
 
-Very special thanks goes out to [The Internet Stellar Database](http://www.stellar-database.com/), [skyMap.org](http://www.wikisky.org/?locale=EN), and [the Strasbourg Astronomical Data Center](https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/)
+Very special thanks go out to [The Internet Stellar Database](http://www.stellar-database.com/), [skyMap.org](http://www.wikisky.org/?locale=EN), and [the Strasbourg Astronomical Data Center](https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/)
