@@ -16,6 +16,7 @@ interface StarCrossingData {
   coordinates: Coordinates;
   infoURL: string;
   skyMapURL: string;
+  closestStarName: string;
   closestStarCommonName: string;
 }
 
