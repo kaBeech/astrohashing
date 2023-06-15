@@ -33,7 +33,7 @@ To start the server: `deno tasks dev` in the root directory
 
 ## Screenshots
 
-Frontend Demo Screenshot 1: Frontend Demo Screenshot 1
+Frontend Demo Screenshot 1:
 ![Frontend Demo Screenshot 1](/public/demoFrontendScreenshot1.png "Frontend Demo Screenshot 1")
 
 Frontend Demo Screenshot 2: 
