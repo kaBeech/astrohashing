@@ -10,7 +10,7 @@ const updateCommonNamesAndInfoURLs = async () => {
     // if (i < 10) {
     if (star.infoURL === null) {
       const infoURL = getInfoURL(star.name);
-      setTimeout(() => {}, 500);
+      setTimeout(() => {}, 2000);
       let commonName = await fetchAndParseHTML(infoURL);
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
@@ -22,7 +22,7 @@ const updateCommonNamesAndInfoURLs = async () => {
       } else if (star.altName !== null) {
         const altName = star.altName.replace("HIP", "HIC");
         const infoAltURL = getInfoURL(altName);
-        setTimeout(() => {}, 500);
+        setTimeout(() => {}, 2000);
         commonName = await fetchAndParseHTML(infoAltURL);
         if (commonName.indexOf("H1") > -1) {
           commonName = commonName.split("H1")[1];
