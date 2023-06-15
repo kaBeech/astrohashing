@@ -14,7 +14,7 @@ const getClosestStar = (starCrossing: Coordinates) => {
   for (const star of stars) {
     const distance = getGreatCircleDistanceBetweenCoordinates(
       star.coordinates,
-      starCrossing
+      starCrossing,
     );
     if (closestDistance === null || distance < closestDistance) {
       closestStar = star;
