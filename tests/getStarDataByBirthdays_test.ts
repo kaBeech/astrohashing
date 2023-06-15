@@ -12,7 +12,7 @@ Deno.test("inputting properly formatted birthdays returns proper starCrossingDat
 
   assertEquals(
     starCrossing,
-    [[0, 0, 0], [0, 0, 0]],
+    [[0, 0, 0], [0, 14, 47]],
   );
   assertEquals(
     closestStarCommonName,
