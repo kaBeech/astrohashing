@@ -4,7 +4,9 @@ import { Coordinates, Star } from "./types.ts";
 import getDistanceBetweenCoordinates from "./util/getDistanceBetweenCoordinates.ts";
 import getGreatCircleDistanceBetweenCoordinates from "./util/getGreatCircleDistanceBetweenCoordinates.ts";
 
-const stars: Star[] = await getAllStars();
+const stars: Star[] = await getAllStars() as unknown as Star[];
+
+console.log(stars);
 
 const getClosestStar = (starCrossing: Coordinates) => {
   let closestDistance: number | null = null;
@@ -24,7 +26,7 @@ const getClosestStar = (starCrossing: Coordinates) => {
   }
   if (closestStar.commonName === null) {
     const infoURL = getInfoURL(closestStar);
-    let commonName = "See Comment"; // fetch the HTML from the infoURL
+    let commonName = "Test<h1>Fix This</h1>Test"; // fetch the HTML from the infoURL
     commonName = commonName.split("h1")[1];
     commonName = commonName.slice(1, -2);
     updateStarCommonName(closestStar, commonName);
