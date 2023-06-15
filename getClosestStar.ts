@@ -5,8 +5,6 @@ import getDistanceBetweenCoordinates from "./util/getDistanceBetweenCoordinates.
 
 const stars: Star[] = await getAllStars() as unknown as Star[];
 
-console.log(stars);
-
 const getClosestStar = (starCrossing: Coordinates) => {
   let closestDistance: number | null = null;
   let closestStar: Star | null = null;
