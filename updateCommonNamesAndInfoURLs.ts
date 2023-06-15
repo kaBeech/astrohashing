@@ -4,25 +4,6 @@ import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
 import getStarCatalog from "./util/getStarCatalog.ts";
 
 const updateCommonNamesAndInfoURLs = async () => {
-  const alphaCentauriInfoURL = getInfoURL("Gl 559");
-  let alphaCentauricommonName = await fetchAndParseHTML(alphaCentauriInfoURL);
-  alphaCentauricommonName = alphaCentauricommonName.split("H1")[1];
-  alphaCentauricommonName = alphaCentauricommonName.slice(1, -2);
-  updateStarCommonName({
-    "name": "Gl 559",
-    "altName": "HIP 71681",
-    "coordinates": [[14, 39, 35.08], [-60, 50, 13.8]],
-    "commonName": null,
-    "infoURL": null,
-  }, alphaCentauricommonName);
-  updateStarInfoURL({
-    "name": "Gl 559",
-    "altName": "HIP 71681",
-    "coordinates": [[14, 39, 35.08], [-60, 50, 13.8]],
-    "commonName": null,
-    "infoURL": null,
-  }, alphaCentauriInfoURL);
-
   const starCatalog = getStarCatalog();
   let i = 0;
   for (const star of starCatalog) {
