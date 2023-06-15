@@ -23,7 +23,7 @@ The main route is a get request on `/star-crossings/:birthdays`, which returns S
 
 The birthdays are expected to be in the following format: `yyyy-mm-dd,yyyy-mm-dd`
 
-For example, a Get request to http://localhost:8000/star-crossings/1960-1-1,1960-4-17 will return StarCrossingData
+For example, a get request to http://localhost:8000/star-crossings/1960-1-1,1960-4-17 will return StarCrossingData
 
 The only other route currently implemented is `/star-catalog`, which lists all the stars loaded into KV
 
