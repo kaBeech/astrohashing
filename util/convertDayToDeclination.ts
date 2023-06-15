@@ -1,19 +1,14 @@
 import { Declination } from "../types.ts";
-
-const dayDeclinationCoefficient = 180 * 60 * 60;
+import convertDayToDeclinationAngle from "./convertDayToDeclinationAngle.ts";
+import { convertRadiansToDeclination } from "./convertRadiansToCoordinates.ts";
 
 const convertDayToDeclination = (
   dayOfYear: number,
 ): Declination => {
-  const rawDeclination: number = (dayOfYear / 366) * dayDeclinationCoefficient;
-  let treatedDeclination = rawDeclination / 180;
-  //   check these for accuracy:
-  const hours: number = Math.floor(treatedDeclination);
-  treatedDeclination = (treatedDeclination - hours) * 100 / 60;
-  const minutes: number = Math.floor(treatedDeclination);
-  treatedDeclination = ((treatedDeclination - minutes) * 100 / 60) - 90;
-  const seconds: number = Math.floor(treatedDeclination);
-  const declination: Declination = [hours, minutes, seconds];
+  const declinationAngle = convertDayToDeclinationAngle(dayOfYear);
+  const declination: Declination = convertRadiansToDeclination(
+    declinationAngle,
+  );
   return declination;
 };
 
