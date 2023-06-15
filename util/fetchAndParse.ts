@@ -4,7 +4,7 @@ const fetchAndParseJSON = async (uri: string) => {
     const jsonData = await jsonResponse.json();
     return jsonData;
   } catch (error) {
-    error;
+    return error;
   }
 };
 
@@ -14,7 +14,7 @@ const fetchAndParseHTML = async (uri: string) => {
     const textData = await textResponse.text();
     return textData;
   } catch (error) {
-    error;
+    return error;
   }
 };
 
