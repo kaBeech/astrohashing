@@ -17,7 +17,7 @@ const getSkyMapURL = (starCrossing: Coordinates): string => {
   );
   // const skyMapURL = `http://www.wikisky.org/?ra=6.3991971944444&de=-52.695660555556&zoom=4&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=DSS2`
   const skyMapURL =
-    `http://www.wikisky.org/?ra=${urlFriendlyAscension}&de=${urlFriendlyDeclination}=4&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=DSS2`;
+    `http://www.wikisky.org/?ra=${urlFriendlyAscension}&de=${urlFriendlyDeclination}&zoom=7&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=DSS2`;
   return skyMapURL;
 };
 
