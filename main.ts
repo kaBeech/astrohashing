@@ -5,7 +5,14 @@ import {
   Router,
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
 import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
-import { getAllStars } from "./db.ts";
+import { getAllStars, upsertStar } from "./db.ts";
+import getStarCatalog from "./util/getStarCatalog.ts";
+
+const starCatalog = getStarCatalog();
+
+for (const star of starCatalog) {
+  upsertStar(star);
+}
 
 const { getQuery } = helpers;
 const router = new Router();

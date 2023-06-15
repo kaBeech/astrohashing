@@ -1,12 +1,13 @@
 import { getAllStars, updateStarCommonName, updateStarInfoURL } from "./db.ts";
 import getInfoURL from "./getInfoURL.ts";
 import { Coordinates, Star } from "./types.ts";
-import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
+// import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
 import getGreatCircleDistanceBetweenCoordinates from "./util/getGreatCircleDistanceBetweenCoordinates.ts";
 
 const stars: Star[] = await getAllStars() as unknown as Star[];
 
-const getClosestStar = async (starCrossing: Coordinates) => {
+// const getClosestStar = async (starCrossing: Coordinates) => {
+const getClosestStar = (starCrossing: Coordinates) => {
   let closestDistance: number | null = null;
   let closestStar: Star | null = null;
   for (const star of stars) {
@@ -24,7 +25,8 @@ const getClosestStar = async (starCrossing: Coordinates) => {
   }
   if (closestStar.commonName === null) {
     const infoURL = getInfoURL(closestStar.name);
-    let commonName = await fetchAndParseHTML(infoURL);
+    // let commonName = await fetchAndParseHTML(infoURL);
+    let commonName = "Hmm<H1>Test Fetch</H1>Weird";
     if (commonName.indexOf("H1") > -1) {
       commonName = commonName.split("H1")[1];
       commonName = commonName.slice(1, -2);
@@ -35,7 +37,8 @@ const getClosestStar = async (starCrossing: Coordinates) => {
     } else if (closestStar.altName !== null) {
       const altName = closestStar.altName.replace("HIP", "HIC");
       const infoAltURL = getInfoURL(altName);
-      commonName = await fetchAndParseHTML(infoAltURL);
+      // commonName = await fetchAndParseHTML(infoAltURL);
+      commonName = "Hmm<H1>Test FetchAgain</H1>Weird";
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
         commonName = commonName.slice(1, -2);
