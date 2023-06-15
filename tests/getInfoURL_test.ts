@@ -10,7 +10,7 @@ const star: Star = {
 };
 
 Deno.test("inputting properly formatted star.name returns proper URL", () => {
-  const result1 = getInfoURL(star);
+  const result1 = getInfoURL(star.name);
 
   assertEquals(
     result1,

@@ -9,7 +9,7 @@ const getStarCrossingDataByBirthdays = async (
 ): Promise<StarCrossingData> => {
   const starCrossing: Coordinates = getStarCrossing(birthdays);
   const closestStar: Star = await getClosestStar(starCrossing);
-  const infoURL = getInfoURL(closestStar);
+  const infoURL = getInfoURL(closestStar.name);
   const skyMapURL = getSkyMapURL(starCrossing);
   const starCrossingData: StarCrossingData = {
     coordinates: starCrossing,
