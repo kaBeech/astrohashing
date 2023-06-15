@@ -18,4 +18,4 @@ const fetchAndParseHTML = async (uri: string) => {
   }
 };
 
-export default { fetchAndParseJSON, fetchAndParseHTML };
+export { fetchAndParseHTML, fetchAndParseJSON };
