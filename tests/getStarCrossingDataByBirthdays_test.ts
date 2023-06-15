@@ -46,7 +46,7 @@ Deno.test("inputting '1960-1-1,1960-4-17' returns proper starCrossingData includ
   );
   assertEquals(
     infoURL,
-    `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=GJ&CatNo=4388`,
+    `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=HIC&CatNo=150`,
   );
   assertEquals(
     skyMapURL,
