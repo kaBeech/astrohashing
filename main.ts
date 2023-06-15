@@ -5,7 +5,23 @@ import {
   Router,
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
 import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
-import { getAllStars } from "./db.ts";
+import { getAllStars, upsertStar } from "./db.ts";
+import getStarCatalog from "./util/getStarCatalog.ts";
+import updateCommonNamesAndInfoURLs from "./updateCommonNamesAndInfoURLs.ts";
+
+// Populate DB
+
+const starCatalog = getStarCatalog();
+
+for (const star of starCatalog) {
+  upsertStar(star);
+}
+
+// Update commonNames and infoURLs
+
+updateCommonNamesAndInfoURLs();
+
+// Start server
 
 const { getQuery } = helpers;
 const router = new Router();

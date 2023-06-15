@@ -4,12 +4,14 @@ import { Star } from "../types.ts";
 
 const star: Star = {
   name: `Wo 9846`,
+  altName: `HIP 18`,
   coordinates: [[0, 0, 1], [-4, 3, 13]],
   commonName: "TestStar",
+  infoURL: null,
 };
 
 Deno.test("inputting properly formatted star.name returns proper URL", () => {
-  const result1 = getInfoURL(star);
+  const result1 = getInfoURL(star.name);
 
   assertEquals(
     result1,

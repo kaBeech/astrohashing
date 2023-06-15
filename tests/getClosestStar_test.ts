@@ -4,8 +4,8 @@ import getClosestStar from "../getClosestStar.ts";
 
 const starCrossing: Coordinates = [[0, 0, 1], [-4, 3, 13]];
 
-Deno.test("inputting valid coordinates returns closest star", () => {
-  const result1 = getClosestStar(starCrossing).name;
+Deno.test("inputting valid coordinates returns closest star", async () => {
+  const result1 = (await getClosestStar(starCrossing)).name;
 
   assertEquals(
     result1,

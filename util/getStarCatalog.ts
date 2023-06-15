@@ -9,6 +9,16 @@ const getStarName = (rawStar: string): string => {
   return starName;
 };
 
+const getStarAltName = (rawStar: string): string | null => {
+  const altNameSlice = rawStar.slice(22, 35);
+  const altNameSplit = altNameSlice.split(" ");
+  let starAltName = null;
+  if (altNameSplit.length < 10) {
+    starAltName = `${altNameSplit[0]} ${altNameSplit[1]}`;
+  }
+  return starAltName;
+};
+
 const getStarCoordinates = (rawStar: string): Coordinates => {
   const ascensionHours = rawStar.slice(36, 38);
   const ascensionMinutes = rawStar.slice(39, 41);
@@ -37,8 +47,10 @@ const getStarCatalog = (): Star[] => {
   for (const rawStar of starsRaw) {
     const starFormatted: Star = {
       name: getStarName(rawStar),
+      altName: getStarAltName(rawStar),
       coordinates: getStarCoordinates(rawStar),
       commonName: null,
+      infoURL: null,
     };
     if (!starNames.includes(starFormatted.name)) {
       starNames.push(starFormatted.name);
