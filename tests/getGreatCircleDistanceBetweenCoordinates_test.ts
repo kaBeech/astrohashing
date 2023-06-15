@@ -21,15 +21,15 @@ Deno.test("inputting extreme ascension coordinates returns pi radians", () => {
     0,
   ]], [[12, 0, 0], [0, 0, 0]]);
 
-  assertAlmostEquals(result, 3.14159);
+  assertEquals(result, 3.141592653589793);
 });
 
 Deno.test("inputting extreme declination coordinates returns pi radians", () => {
-  const result = getGreatCircleDistanceBetweenCoordinates([[-90, 0, 0], [
-    0,
+  const result = getGreatCircleDistanceBetweenCoordinates([[0, 0, 0], [
+    -90,
     0,
     0,
   ]], [[0, 0, 0], [90, 0, 0]]);
 
-  assertAlmostEquals(result, 3.14159);
+  assertEquals(result, 3.141592653589793);
 });
