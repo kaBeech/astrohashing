@@ -31,7 +31,8 @@ const getClosestStar = async (starCrossing: Coordinates) => {
       updateStarCommonName(closestStar, commonName);
       closestStar.commonName = commonName;
     } else if (closestStar.altName !== null) {
-      const infoAltURL = getInfoURL(closestStar.altName);
+      const altName = closestStar.altName.replace("HIP", "HIC");
+      const infoAltURL = getInfoURL(altName);
       commonName = await fetchAndParseHTML(infoAltURL);
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
