@@ -28,10 +28,14 @@ const getClosestStar = (starCrossing: Coordinates) => {
   if (closestStar.commonName === null) {
     const infoURL = getInfoURL(closestStar);
     let commonName = "Test<h1>Fix This</h1>Test"; // fetch the HTML from the infoURL
-    commonName = commonName.split("h1")[1];
-    commonName = commonName.slice(1, -2);
-    updateStarCommonName(closestStar, commonName);
-    closestStar.commonName = commonName;
+    if (commonName.indexOf("h1") > -1) {
+      commonName = commonName.split("h1")[1];
+      commonName = commonName.slice(1, -2);
+      updateStarCommonName(closestStar, commonName);
+      closestStar.commonName = commonName;
+    } else {
+      console.log("commonName not found in ISDB");
+    }
   }
   return closestStar;
 };
