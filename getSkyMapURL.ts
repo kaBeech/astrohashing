@@ -9,7 +9,6 @@ import {
 } from "./util/convertRadiansToURLFriendly.ts";
 
 const getSkyMapURL = (starCrossing: Coordinates): string => {
-  // Check this for accuracy. Commented out working URL example
   const urlFriendlyAscension = convertRadiansToURLFriendlyAscension(
     convertAscensionToRadians(starCrossing[0]),
   );
