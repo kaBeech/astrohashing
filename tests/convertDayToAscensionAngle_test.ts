@@ -7,8 +7,8 @@ Deno.test("inputting day 1 returns 0 radians", () => {
   assertEquals(result, 0);
 });
 
-Deno.test("inputting day 366 returns pi radians", () => {
+Deno.test("inputting day 366 returns 2 pi radians", () => {
   const result1 = convertDayToAscensionAngle(366);
 
-  assertEquals(result1, 3.1415926535);
+  assertEquals(result1, 6.283185307179586);
 });
