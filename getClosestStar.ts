@@ -25,8 +25,8 @@ const getClosestStar = async (starCrossing: Coordinates) => {
   if (closestStar.commonName === null) {
     const infoURL = getInfoURL(closestStar);
     let commonName = await fetchAndParseHTML(infoURL);
-    if (commonName.indexOf("h1") > -1) {
-      commonName = commonName.split("h1")[1];
+    if (commonName.indexOf("H1") > -1) {
+      commonName = commonName.split("H1")[1];
       commonName = commonName.slice(1, -2);
       updateStarCommonName(closestStar, commonName);
       closestStar.commonName = commonName;

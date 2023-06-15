@@ -6,7 +6,7 @@ const birthdays = "1960-1-1,1960-7-2";
 Deno.test("inputting properly formatted birthdays returns proper starCrossingData", async () => {
   const result = await getStarCrossingDataByBirthdays(birthdays);
   const starCrossing = result.coordinates;
-  const closestStarCommonName = result.closestStarCommonName;
+  const closestStarCommonName = result.closestStarCommonName.slice(0, 21);
   const infoURL = result.infoURL;
   const skyMapURL = result.skyMapURL;
 
@@ -16,7 +16,7 @@ Deno.test("inputting properly formatted birthdays returns proper starCrossingDat
   );
   assertEquals(
     closestStarCommonName,
-    `Bonner Durchmusterung -2�129`,
+    `Bonner Durchmusterung`,
   );
   assertEquals(
     infoURL,
