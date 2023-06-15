@@ -1,7 +1,4 @@
-import {
-  assertAlmostEquals,
-  assertEquals,
-} from "https://deno.land/std@0.188.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.188.0/testing/asserts.ts";
 import getGreatCircleDistanceBetweenCoordinates from "../util/getGreatCircleDistanceBetweenCoordinates.ts";
 
 Deno.test("inputting same coordinates returns 0 radians", () => {

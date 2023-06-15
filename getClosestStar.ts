@@ -1,7 +1,6 @@
 import { getAllStars, updateStarCommonName } from "./db.ts";
 import getInfoURL from "./getInfoURL.ts";
 import { Coordinates, Star } from "./types.ts";
-import getDistanceBetweenCoordinates from "./util/getDistanceBetweenCoordinates.ts";
 import getGreatCircleDistanceBetweenCoordinates from "./util/getGreatCircleDistanceBetweenCoordinates.ts";
 
 const stars: Star[] = await getAllStars() as unknown as Star[];
