@@ -13,6 +13,6 @@ Deno.test("inputting properly formatted star.name returns proper URL", () => {
 
   assertEquals(
     result1,
-    `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=TEST&CatNo=NAME`,
+    `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=Wo&CatNo=9846`,
   );
 });
