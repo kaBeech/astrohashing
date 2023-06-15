@@ -3,7 +3,7 @@ import getStarCrossingDataByBirthdays from "../getStarCrossingDataByBirthdays.ts
 
 const birthdays = "1960-1-1,1960-7-2";
 
-Deno.test("move in upwards direction returns proper coordinates", () => {
+Deno.test("inputting properly formatted birthdays returns proper starCrossingData", () => {
   const result = getStarCrossingDataByBirthdays(birthdays);
   const starCrossing = result.coordinates;
   const closestStarCommonName = result.closestStarCommonName;
