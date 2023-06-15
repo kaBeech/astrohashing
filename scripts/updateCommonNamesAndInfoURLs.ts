@@ -34,6 +34,7 @@ for (const star of starCatalog) {
       } else {
         const fallbackURL = `https://duckduckgo.com/?q=!ducky+${star.name}`;
         updateStarInfoURL(star, fallbackURL);
+        star.infoURL = fallbackURL;
       }
       i++;
     }
