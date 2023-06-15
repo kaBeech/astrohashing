@@ -2,7 +2,7 @@ import { assertEquals } from "https://deno.land/std@0.188.0/testing/asserts.ts";
 import convertDayToAscensionAngle from "../util/convertDayToAscensionAngle.ts";
 
 Deno.test("inputting day 1 returns 0 radians", () => {
-  const result = convertDayToAscensionAngle(0);
+  const result = convertDayToAscensionAngle(1);
 
   assertEquals(result, 0);
 });
