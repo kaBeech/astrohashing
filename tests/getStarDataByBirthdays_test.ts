@@ -16,14 +16,14 @@ Deno.test("inputting properly formatted birthdays returns proper starCrossingDat
   );
   assertEquals(
     closestStarCommonName,
-    `Wo 9846`,
+    `Gl 44`,
   );
   assertEquals(
     infoURL,
-    `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=Wo&CatNo=9846`,
+    `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=Gl&CatNo=44`,
   );
   assertEquals(
     skyMapURL,
-    `http://www.wikisky.org/?ra=6.3991971944444&de=-52.695660555556=3&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=IMG_all}`,
+    `http://www.wikisky.org/?ra=0&de=0.24638888888888744=3&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=IMG_all}`,
   );
 });
