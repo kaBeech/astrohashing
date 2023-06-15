@@ -7,6 +7,7 @@ const star: Star = {
   altName: `HIP 18`,
   coordinates: [[0, 0, 1], [-4, 3, 13]],
   commonName: "TestStar",
+  infoURL: null,
 };
 
 Deno.test("inputting properly formatted star.name returns proper URL", () => {

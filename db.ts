@@ -77,3 +77,26 @@ export async function updateStarCommonName(star: Star, commonName: string) {
     if (!ok) throw new Error("Something went wrong.");
   }
 }
+
+/**
+ * Update star's infoURL.
+ * @param star
+ * @param infoURL
+ */
+
+export async function updateStarInfoURL(star: Star, infoURL: string) {
+  star.infoURL = infoURL;
+  const starKey = ["star", star.name];
+
+  const oldStar = await kv.get<Star>(starKey);
+
+  if (!oldStar.value) {
+    throw new Error(`Star ${star.name} not found`);
+  } else {
+    const ok = await kv.atomic()
+      .check(oldStar)
+      .set(starKey, star)
+      .commit();
+    if (!ok) throw new Error("Something went wrong.");
+  }
+}

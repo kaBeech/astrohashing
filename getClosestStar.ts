@@ -1,4 +1,4 @@
-import { getAllStars, updateStarCommonName } from "./db.ts";
+import { getAllStars, updateStarCommonName, updateStarInfoURL } from "./db.ts";
 import getInfoURL from "./getInfoURL.ts";
 import { Coordinates, Star } from "./types.ts";
 import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
@@ -39,9 +39,14 @@ const getClosestStar = async (starCrossing: Coordinates) => {
         commonName = commonName.slice(1, -2);
         updateStarCommonName(closestStar, commonName);
         closestStar.commonName = commonName;
+        updateStarInfoURL(closestStar, infoAltURL);
+        closestStar.infoURL = infoAltURL;
       }
     } else {
       console.log("commonName not found in ISDB");
+      const fallbackURL =
+        `https://duckduckgo.com/?q=!ducky+${closestStar.name}`;
+      updateStarInfoURL(closestStar, fallbackURL);
     }
   }
   return closestStar;

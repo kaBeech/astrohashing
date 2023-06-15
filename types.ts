@@ -9,6 +9,7 @@ interface Star {
   name: string;
   altName: string | null;
   commonName: string | null;
+  infoURL: string | null;
 }
 
 interface StarCrossingData {

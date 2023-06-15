@@ -50,6 +50,7 @@ const getStarCatalog = (): Star[] => {
       altName: getStarAltName(rawStar),
       coordinates: getStarCoordinates(rawStar),
       commonName: null,
+      infoURL: null,
     };
     if (!starNames.includes(starFormatted.name)) {
       starNames.push(starFormatted.name);
