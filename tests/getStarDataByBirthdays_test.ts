@@ -16,7 +16,7 @@ Deno.test("inputting properly formatted birthdays returns proper starCrossingDat
   );
   assertEquals(
     closestStarCommonName,
-    `Gl 44`,
+    `Bonner Durchmusterung -2�129`,
   );
   assertEquals(
     infoURL,
