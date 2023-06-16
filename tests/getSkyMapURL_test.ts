@@ -9,6 +9,6 @@ Deno.test("inputting properly formatted coordinates returns proper URL", () => {
 
   assertEquals(
     result1,
-    `http://www.wikisky.org/?ra=14.044009259259258&de=-59.16602777777778=3&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=IMG_all}`,
+    `http://www.wikisky.org/?ra=14.044009259259258&de=-59.16602777777778&zoom=3&show_grid=1&show_constellation_lines=1&show_constellation_boundaries=1&show_const_names=1&show_galaxies=1&img_source=IMG_all}`,
   );
 });
