@@ -16,8 +16,8 @@ for (const star of starCatalog) {
       commonName = commonName.slice(1, -2);
       updateStarCommonName(star, commonName);
       star.commonName = commonName;
-      // updateStarInfoURL(star, infoURL);
-      // star.infoURL = infoURL;
+      updateStarInfoURL(star, infoURL);
+      star.infoURL = infoURL;
     } else if (star.altName !== null) {
       const altName = star.altName.replace("HIP", "HIC");
       const infoAltURL = getInfoURL(altName);
@@ -28,8 +28,8 @@ for (const star of starCatalog) {
         commonName = commonName.slice(1, -2);
         updateStarCommonName(star, commonName);
         star.commonName = commonName;
-        // updateStarInfoURL(star, infoAltURL);
-        // star.infoURL = infoAltURL;
+        updateStarInfoURL(star, infoAltURL);
+        star.infoURL = infoAltURL;
       }
     } else {
       const fallbackURL =

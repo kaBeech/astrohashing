@@ -9,13 +9,13 @@ const getStarCrossingDataByBirthdays = async (
   const starCrossing: Coordinates = getStarCrossing(birthdays);
   const closestStar: Star = await getClosestStar(starCrossing);
   let infoURL = null;
-  if (closestStar.infoURL !== null) infoURL = closestStar.infoURL;
-  else {
-    infoURL =
-      `https://duckduckgo.com/?q=!ducky+site%3Awww.universeguide.com+star+${
-        closestStar.name.split(" ")[0]
-      }+${closestStar.name.split(" ")[1]}`;
-  }
+  // if (closestStar.infoURL !== null) infoURL = closestStar.infoURL;
+  // else {
+  infoURL =
+    `https://duckduckgo.com/?q=!ducky+site%3Awww.universeguide.com+star+${
+      closestStar.name.split(" ")[0]
+    }+${closestStar.name.split(" ")[1]}`;
+  // }
   const skyMapURL = getSkyMapURL(starCrossing);
   const starCrossingData: StarCrossingData = {
     coordinates: starCrossing,
