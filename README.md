@@ -47,4 +47,4 @@ To start the server: `deno tasks dev` in the root directory
 
 ## Acknowledgements
 
-Very special thanks go out to the [Internet Stellar Database](http://www.stellar-database.com/) for the info links, [skyMap.org](http://www.wikisky.org/?locale=EN) for the skyMaps, and the [Strasbourg Astronomical Data Center](https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/) for the starData
+Very special thanks go out to the [Internet Stellar Database](http://www.stellar-database.com/) and the [Universe Guide](https://www.universeguide.com/) for the info links, [skyMap.org](http://www.wikisky.org/?locale=EN) for the skyMaps, and the [Strasbourg Astronomical Data Center](https://cdsarc.cds.unistra.fr/ftp/cats/J/PASP/122/885/) for the starData
