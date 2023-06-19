@@ -1,4 +1,5 @@
 import {
+  getAllStars,
   updateStarCommonName,
   updateStarInfoURL,
   updateStarISDBURL,
@@ -7,11 +8,12 @@ import {
 import getISDBURL from "./getISDBURL.ts";
 import getUniverseGuideURL from "./getUniverseGuideURL.ts";
 import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
-import getStarCatalog from "./util/getStarCatalog.ts";
+// import getStarCatalog from "./util/getStarCatalog.ts";
 
 const updateCommonNamesAndInfoURLs = async () => {
-  const starCatalog = getStarCatalog();
-  for (const star of starCatalog) {
+  // const starCatalog = getStarCatalog();
+  const starCatalog = getAllStars();
+  for (const star of await starCatalog) {
     if (star.commonName === null) {
       const isdbURL = getISDBURL(star.name);
       const universeGuideURL = getUniverseGuideURL(star.name);
