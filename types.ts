@@ -10,10 +10,8 @@ interface Star {
   altName: string | null;
   commonName: string | null;
   infoURL: string | null;
-  notVerified: {
-    isdbURL: string | null;
-    universeGuideURL: string | null;
-  };
+  isdbURL: string | null;
+  universeGuideURL: string | null;
 }
 
 interface StarCrossingData {
