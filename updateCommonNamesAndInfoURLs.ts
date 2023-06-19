@@ -11,9 +11,7 @@ import getStarCatalog from "./util/getStarCatalog.ts";
 
 const updateCommonNamesAndInfoURLs = async () => {
   const starCatalog = getStarCatalog();
-  // let i = 0;
   for (const star of starCatalog) {
-    // if (i < 10) {
     if (star.commonName === null) {
       const isdbURL = getISDBURL(star.name);
       const universeGuideURL = getUniverseGuideURL(star.name);
@@ -30,8 +28,6 @@ const updateCommonNamesAndInfoURLs = async () => {
         commonName = commonName.slice(1, -2);
         updateStarCommonName(star, commonName);
         star.commonName = commonName;
-        // updateStarInfoURL(star, isdbURL);
-        // star.infoURL = isdbURL;
       } else if (star.altName !== null) {
         const altName = star.altName.replace("HIP", "HIC");
         const infoAltURL = getISDBURL(altName);
@@ -42,16 +38,9 @@ const updateCommonNamesAndInfoURLs = async () => {
           commonName = commonName.slice(1, -2);
           updateStarCommonName(star, commonName);
           star.commonName = commonName;
-          // updateStarInfoURL(star, infoAltURL);
-          // star.infoURL = infoAltURL;
         }
-        // } else {
-        //   updateStarInfoURL(star, universeGuideURL);
-        //   star.infoURL = universeGuideURL;
       }
-      // i++;
     }
-    // }
   }
 };
 
