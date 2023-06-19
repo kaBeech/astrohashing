@@ -8,6 +8,7 @@ import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts"
 import { getAllStars, upsertStar } from "./db.ts";
 import getStarCatalog from "./util/getStarCatalog.ts";
 import updateCommonNamesAndInfoURLs from "./updateCommonNamesAndInfoURLs.ts";
+import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 
 // Populate DB
 
@@ -40,6 +41,7 @@ router.get("/star-crossings/:birthdays", async (ctx: Context) => {
 });
 
 const app = new Application();
+app.use(oakCors());
 
 app.use(router.routes());
 app.use(router.allowedMethods());
