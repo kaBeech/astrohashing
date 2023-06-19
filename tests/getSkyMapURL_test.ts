@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.188.0/testing/asserts.ts";
 import { Coordinates } from "../types.ts";
-import getSkyMapURL from "../getSkyMapURL.ts";
+import { getSkyMapURL } from "../util/getURL.ts";
 
 const starCrossing: Coordinates = [[14, 39, 36.50], [-60, 50, 2.3]];
 

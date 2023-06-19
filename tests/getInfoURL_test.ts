@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.188.0/testing/asserts.ts";
-import getInfoURL from "../getInfoURL.ts";
+import { getISDBURL } from "../util/getURL.ts";
 import { Star } from "../types.ts";
 
 const star: Star = {
@@ -11,7 +11,7 @@ const star: Star = {
 };
 
 Deno.test("inputting properly formatted star.name returns proper URL", () => {
-  const result1 = getInfoURL(star.name);
+  const result1 = getISDBURL(star.name);
 
   assertEquals(
     result1,

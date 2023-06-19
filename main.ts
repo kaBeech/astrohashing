@@ -6,12 +6,13 @@ import {
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
 import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
 import { getAllStars, upsertStar } from "./db.ts";
-import getStarCatalog from "./util/getStarCatalog.ts";
-import updateCommonNamesAndInfoURLs from "./updateCommonNamesAndInfoURLs.ts";
+import createStarCatalog from "./util/createStarCatalog.ts";
+// import updateAllCommonNamesAndInfoURLs from "./updateAllCommonNamesAndInfoURLs.ts";
+import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 
 // Populate DB
 
-const starCatalog = getStarCatalog();
+const starCatalog = createStarCatalog();
 
 for (const star of starCatalog) {
   upsertStar(star);
@@ -19,7 +20,7 @@ for (const star of starCatalog) {
 
 // Update commonNames and infoURLs
 
-updateCommonNamesAndInfoURLs();
+// updateAllCommonNamesAndInfoURLs();
 
 // Start server
 
@@ -34,12 +35,13 @@ router.get("/star-catalog", async (ctx: Context) => {
   ctx.response.body = await getAllStars();
 });
 
-router.get("/star-crossings/:birthdays", async (ctx: Context) => {
+router.get("/star-crossings/:birthdays", (ctx: Context) => {
   const { birthdays } = getQuery(ctx, { mergeParams: true });
-  ctx.response.body = await getStarCrossingDataByBirthdays(birthdays);
+  ctx.response.body = getStarCrossingDataByBirthdays(birthdays);
 });
 
 const app = new Application();
+app.use(oakCors());
 
 app.use(router.routes());
 app.use(router.allowedMethods());
