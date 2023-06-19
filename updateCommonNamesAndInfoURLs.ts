@@ -1,4 +1,9 @@
-import { updateStarCommonName, updateStarInfoURL } from "./db.ts";
+import {
+  updateStarCommonName,
+  updateStarInfoURL,
+  updateStarISDBURL,
+  updateStarUniverseGuideURL,
+} from "./db.ts";
 import getISDBURL from "./getISDBURL.ts";
 import getUniverseGuideURL from "./getUniverseGuideURL.ts";
 import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
@@ -12,6 +17,12 @@ const updateCommonNamesAndInfoURLs = async () => {
     if (star.commonName === null) {
       const isdbURL = getISDBURL(star.name);
       const universeGuideURL = getUniverseGuideURL(star.name);
+      updateStarISDBURL(star, isdbURL);
+      updateStarUniverseGuideURL(star, universeGuideURL);
+      updateStarInfoURL(star, universeGuideURL);
+      star.isdbURL = isdbURL;
+      star.universeGuideURL = universeGuideURL;
+      star.infoURL = universeGuideURL;
       setTimeout(() => {}, 1000);
       let commonName = await fetchAndParseHTML(isdbURL);
       if (commonName.indexOf("H1") > -1) {
@@ -19,8 +30,8 @@ const updateCommonNamesAndInfoURLs = async () => {
         commonName = commonName.slice(1, -2);
         updateStarCommonName(star, commonName);
         star.commonName = commonName;
-        updateStarInfoURL(star, isdbURL);
-        star.infoURL = isdbURL;
+        // updateStarInfoURL(star, isdbURL);
+        // star.infoURL = isdbURL;
       } else if (star.altName !== null) {
         const altName = star.altName.replace("HIP", "HIC");
         const infoAltURL = getISDBURL(altName);
@@ -31,12 +42,12 @@ const updateCommonNamesAndInfoURLs = async () => {
           commonName = commonName.slice(1, -2);
           updateStarCommonName(star, commonName);
           star.commonName = commonName;
-          updateStarInfoURL(star, infoAltURL);
-          star.infoURL = infoAltURL;
+          // updateStarInfoURL(star, infoAltURL);
+          // star.infoURL = infoAltURL;
         }
-      } else {
-        updateStarInfoURL(star, universeGuideURL);
-        star.infoURL = universeGuideURL;
+        // } else {
+        //   updateStarInfoURL(star, universeGuideURL);
+        //   star.infoURL = universeGuideURL;
       }
       // i++;
     }
