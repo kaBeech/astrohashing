@@ -39,9 +39,9 @@ const getStaticPhotoURL = (starCrossing: Coordinates): string => {
     convertDeclinationToRadians(starCrossing[1]),
   );
 
-  const skyMapURL =
+  const staticPhotoURL =
     `http://www.wikisky.org/imgcut?survey=DSS2&img_id=all&angle=15&ra=${urlFriendlyAscension}&de=${urlFriendlyDeclination}&width=800&height=800&projection=tan&interpolation=bicubic&jpeg_quality=0.8&output_type=jpeg`;
-  return skyMapURL;
+  return staticPhotoURL;
 };
 
 const getUniverseGuideURL = (starName: string): string => {
