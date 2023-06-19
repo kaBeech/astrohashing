@@ -10,17 +10,17 @@ const updateCommonNamesAndInfoURLs = async () => {
   for (const star of starCatalog) {
     // if (i < 10) {
     if (star.commonName === null) {
-      const infoURL = getISDBURL(star.name);
+      const isdbURL = getISDBURL(star.name);
       const universeGuideURL = getUniverseGuideURL(star.name);
       setTimeout(() => {}, 1000);
-      let commonName = await fetchAndParseHTML(infoURL);
+      let commonName = await fetchAndParseHTML(isdbURL);
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
         commonName = commonName.slice(1, -2);
         updateStarCommonName(star, commonName);
         star.commonName = commonName;
-        updateStarInfoURL(star, infoURL);
-        star.infoURL = infoURL;
+        updateStarInfoURL(star, isdbURL);
+        star.infoURL = isdbURL;
       } else if (star.altName !== null) {
         const altName = star.altName.replace("HIP", "HIC");
         const infoAltURL = getISDBURL(altName);
