@@ -50,14 +50,15 @@ const createStarCatalog = (): Star[] => {
   for (const rawStar of starsRaw) {
     const starName = getStarName(rawStar);
     const starCoordinates = getStarCoordinates(rawStar);
+    const universeGuideURL = getUniverseGuideURL(starName);
     const starFormatted: Star = {
       name: starName,
       altName: getStarAltName(rawStar),
       coordinates: starCoordinates,
       commonName: null,
-      infoURL: null,
+      infoURL: universeGuideURL,
       isdbURL: getISDBURL(starName),
-      universeGuideURL: getUniverseGuideURL(starName),
+      universeGuideURL: universeGuideURL,
       staticPhoto: null,
       staticPhotoURL: getStaticPhotoURL(starCoordinates),
     };
