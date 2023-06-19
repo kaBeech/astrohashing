@@ -1,8 +1,8 @@
 import getClosestStar from "./getClosestStar.ts";
 import getStarCrossing from "./getStarCrossing.ts";
 import { Coordinates, Star, StarCrossingData } from "./types.ts";
-import updateCommonNameAndInfoURL from "./updateCommonNameAndInfoURL.ts";
-import updateStaticPhoto from "./updateStaticPhoto.ts";
+// import updateCommonNameAndInfoURL from "./updateCommonNameAndInfoURL.ts";
+// import updateStaticPhoto from "./updateStaticPhoto.ts";
 
 const getStarCrossingDataByBirthdays = (
   birthdays: string,
@@ -18,12 +18,14 @@ const getStarCrossingDataByBirthdays = (
     closestStarCommonName: String(closestStar.commonName),
     infoURL: closestStar.infoURL,
   };
-  if (starCrossingData.closestStarCommonName === null) {
-    updateCommonNameAndInfoURL(closestStar);
-  }
-  if (starCrossingData.staticPhoto === null) {
-    updateStaticPhoto(closestStar);
-  }
+  // if (starCrossingData.closestStarCommonName === null) {
+  //   updateCommonNameAndInfoURL(closestStar);
+  //   starCrossingData.closestStarCommonName = String(closestStar.commonName)
+  // }
+  // if (starCrossingData.staticPhoto === null) {
+  //   updateStaticPhoto(starCrossingData.coordinates);
+  //   starCrossingData.staticPhoto
+  // }
   return starCrossingData;
 };
 
