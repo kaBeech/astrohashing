@@ -8,10 +8,10 @@ import {
 import getISDBURL from "./getISDBURL.ts";
 import getUniverseGuideURL from "./getUniverseGuideURL.ts";
 import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
-// import getStarCatalog from "./util/getStarCatalog.ts";
+// import createStarCatalog from "./util/createStarCatalog.ts";
 
 const updateCommonNamesAndInfoURLs = async () => {
-  // const starCatalog = getStarCatalog();
+  // const starCatalog = createStarCatalog();
   const starCatalog = getAllStars();
   for (const star of await starCatalog) {
     if (star.commonName === null) {

@@ -10,9 +10,9 @@ interface Star {
   altName: string | null;
   commonName: string | null;
   infoURL: string | null;
-  isdbURL: string | null;
-  universeGuideURL: string | null;
-  staticPhoto: File;
+  isdbURL: string;
+  universeGuideURL: string;
+  staticPhoto: File | null;
   staticPhotoURL: string;
 }
 

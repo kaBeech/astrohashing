@@ -1,3 +1,6 @@
+import getISDBURL from "../getISDBURL.ts";
+import getStaticPhotoURL from "../getStaticPhotoURL.ts";
+import getUniverseGuideURL from "../getUniverseGuideURL.ts";
 import { Ascension, Coordinates, Declination, Star } from "../types.ts";
 import convertMultiLineFileToArray from "./convertFileToArray.ts";
 
@@ -40,17 +43,23 @@ const getStarCoordinates = (rawStar: string): Coordinates => {
   return starCoordinates;
 };
 
-const getStarCatalog = (): Star[] => {
+const createStarCatalog = (): Star[] => {
   const starsFormatted: Star[] = [];
   const starNames: string[] = [];
 
   for (const rawStar of starsRaw) {
+    const starName = getStarName(rawStar);
+    const starCoordinates = getStarCoordinates(rawStar);
     const starFormatted: Star = {
-      name: getStarName(rawStar),
+      name: starName,
       altName: getStarAltName(rawStar),
-      coordinates: getStarCoordinates(rawStar),
+      coordinates: starCoordinates,
       commonName: null,
       infoURL: null,
+      isdbURL: getISDBURL(starName),
+      universeGuideURL: getUniverseGuideURL(starName),
+      staticPhoto: null,
+      staticPhotoURL: getStaticPhotoURL(starCoordinates),
     };
     if (!starNames.includes(starFormatted.name)) {
       starNames.push(starFormatted.name);
@@ -61,4 +70,4 @@ const getStarCatalog = (): Star[] => {
   return starsFormatted;
 };
 
-export default getStarCatalog;
+export default createStarCatalog;

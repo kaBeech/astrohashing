@@ -1,7 +1,7 @@
 import { upsertStar } from "../db.ts";
-import getStarCatalog from "../util/getStarCatalog.ts";
+import createStarCatalog from "../util/createStarCatalog.ts";
 
-const starCatalog = getStarCatalog();
+const starCatalog = createStarCatalog();
 
 for (const star of starCatalog) {
   upsertStar(star);
