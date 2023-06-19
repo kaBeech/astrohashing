@@ -40,7 +40,7 @@ For example, a get request to [hungry-heron-21.deno.dev/star-crossings/1960-1-1,
 
 The only other route currently implemented is `/star-catalog`, which lists all the stars loaded into KV
 
-A frontend demo is available at [kabeech.com/fun/star-crossed/](https://www.kabeech.com/fun/star-crossed/). However, the birthdays are currently hard-coded. I'll implement a form with date-pickers that can be used to hit the API for custom birthdays soon. For now I need to sleep
+A frontend demo is available at [kabeech.com/fun/star-crossed/](https://www.kabeech.com/fun/star-crossed/)
 
 To start the server: `deno tasks dev` in the root directory
 
