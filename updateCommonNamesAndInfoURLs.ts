@@ -5,12 +5,12 @@ import getStarCatalog from "./util/getStarCatalog.ts";
 
 const updateCommonNamesAndInfoURLs = async () => {
   const starCatalog = getStarCatalog();
-  let i = 0;
+  // let i = 0;
   for (const star of starCatalog) {
     // if (i < 10) {
     if (star.commonName === null) {
       const infoURL = getInfoURL(star.name);
-      setTimeout(() => {}, 2000);
+      setTimeout(() => {}, 1000);
       let commonName = await fetchAndParseHTML(infoURL);
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
@@ -22,7 +22,7 @@ const updateCommonNamesAndInfoURLs = async () => {
       } else if (star.altName !== null) {
         const altName = star.altName.replace("HIP", "HIC");
         const infoAltURL = getInfoURL(altName);
-        setTimeout(() => {}, 2000);
+        setTimeout(() => {}, 1000);
         commonName = await fetchAndParseHTML(infoAltURL);
         if (commonName.indexOf("H1") > -1) {
           commonName = commonName.split("H1")[1];
@@ -33,14 +33,10 @@ const updateCommonNamesAndInfoURLs = async () => {
           star.infoURL = infoAltURL;
         }
       } else {
-        const fallbackURL =
-          `https://duckduckgo.com/?q=!ducky+site%3Awww.universeguide.com+star+${
-            star.name.split(" ")[0]
-          }+${star.name.split(" ")[1]}`;
         updateStarInfoURL(star, fallbackURL);
         star.infoURL = fallbackURL;
       }
-      i++;
+      // i++;
     }
     // }
   }
