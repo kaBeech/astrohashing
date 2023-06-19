@@ -7,7 +7,7 @@ import {
 import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
 import { getAllStars, upsertStar } from "./db.ts";
 import createStarCatalog from "./util/createStarCatalog.ts";
-import updateCommonNamesAndInfoURLs from "./updateCommonNamesAndInfoURLs.ts";
+import updateAllCommonNamesAndInfoURLs from "./updateAllCommonNamesAndInfoURLs.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 
 // Populate DB
@@ -20,7 +20,7 @@ for (const star of starCatalog) {
 
 // Update commonNames and infoURLs
 
-// updateCommonNamesAndInfoURLs();
+// updateAllCommonNamesAndInfoURLs();
 
 // Start server
 

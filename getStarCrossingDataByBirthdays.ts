@@ -1,19 +1,23 @@
+import fetchStaticPhoto from "./fetchStaticPhoto.ts";
 import getClosestStar from "./getClosestStar.ts";
 import getStarCrossing from "./getStarCrossing.ts";
 import { Coordinates, Star, StarCrossingData } from "./types.ts";
+import { getSkyMapURL, getStaticPhotoURL } from "./util/getURL.ts";
 // import updateCommonNameAndInfoURL from "./updateCommonNameAndInfoURL.ts";
 // import updateStaticPhoto from "./updateStaticPhoto.ts";
 
-const getStarCrossingDataByBirthdays = (
+const getStarCrossingDataByBirthdays = async (
   birthdays: string,
-): StarCrossingData => {
+): Promise<StarCrossingData> => {
   const starCrossing: Coordinates = getStarCrossing(birthdays);
   const closestStar: Star = getClosestStar(starCrossing);
+  const staticPhotoURL = getStaticPhotoURL(starCrossing);
+  const staticPhoto = await fetchStaticPhoto(staticPhotoURL);
   const starCrossingData: StarCrossingData = {
     coordinates: starCrossing,
-    skyMapURL: closestStar.skyMapURL,
-    staticPhotoURL: closestStar.staticPhotoURL,
-    staticPhoto: closestStar.staticPhoto,
+    skyMapURL: getSkyMapURL(starCrossing),
+    staticPhotoURL: staticPhotoURL,
+    staticPhoto: staticPhoto,
     closestStarName: String(closestStar.name),
     closestStarCommonName: String(closestStar.commonName),
     infoURL: closestStar.infoURL,

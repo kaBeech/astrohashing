@@ -62,9 +62,6 @@ const createStarCatalog = (): Star[] => {
       infoURL: universeGuideURL,
       isdbURL: getISDBURL(starName),
       universeGuideURL: universeGuideURL,
-      staticPhoto: null,
-      staticPhotoURL: getStaticPhotoURL(starCoordinates),
-      skyMapURL: getSkyMapURL(starCoordinates),
     };
     if (!starNames.includes(starFormatted.name)) {
       starNames.push(starFormatted.name);
