@@ -1,8 +1,10 @@
-import getISDBURL from "../getISDBURL.ts";
-import getStaticPhotoURL from "../getStaticPhotoURL.ts";
-import getUniverseGuideURL from "../getUniverseGuideURL.ts";
 import { Ascension, Coordinates, Declination, Star } from "../types.ts";
 import convertMultiLineFileToArray from "./convertFileToArray.ts";
+import {
+  getISDBURL,
+  getStaticPhotoURL,
+  getUniverseGuideURL,
+} from "./getURL.ts";
 
 const starsRaw = await convertMultiLineFileToArray("./starData/table1.dat");
 

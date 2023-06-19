@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.188.0/testing/asserts.ts";
-import getISDBURL from "../getISDBURL.ts";
+import { getISDBURL } from "../util/getURL.ts";
 import { Star } from "../types.ts";
 
 const star: Star = {

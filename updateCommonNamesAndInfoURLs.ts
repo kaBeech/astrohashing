@@ -1,5 +1,5 @@
 import { getAllStars, updateStarCommonName } from "./db.ts";
-import getISDBURL from "./getISDBURL.ts";
+import { getISDBURL } from "./util/getURL.ts";
 import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
 // import createStarCatalog from "./util/createStarCatalog.ts";
 

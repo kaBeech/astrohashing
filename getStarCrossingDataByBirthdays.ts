@@ -1,5 +1,5 @@
 import getClosestStar from "./getClosestStar.ts";
-import getSkyMapURL from "./getSkyMapURL.ts";
+import { getSkyMapURL } from "./util/getURL.ts";
 import getStarCrossing from "./getStarCrossing.ts";
 import { Coordinates, Star, StarCrossingData } from "./types.ts";
 
