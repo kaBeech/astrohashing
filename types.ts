@@ -12,7 +12,7 @@ interface Star {
   infoURL: string | null;
   isdbURL: string;
   universeGuideURL: string;
-  staticPhoto: File | null;
+  staticPhoto: object | null;
   staticPhotoURL: string;
 }
 

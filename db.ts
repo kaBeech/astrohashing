@@ -137,3 +137,23 @@ export async function updateStarUniverseGuideURL(
     if (!ok) throw new Error("Something went wrong.");
   }
 }
+
+export async function updateStarStaticPhoto(
+  star: Star,
+  staticPhoto: object,
+) {
+  star.staticPhoto = staticPhoto;
+  const starKey = ["star", star.name];
+
+  const oldStar = await kv.get<Star>(starKey);
+
+  if (!oldStar.value) {
+    throw new Error(`Star ${star.name} not found`);
+  } else {
+    const ok = await kv.atomic()
+      .check(oldStar)
+      .set(starKey, star)
+      .commit();
+    if (!ok) throw new Error("Something went wrong.");
+  }
+}
