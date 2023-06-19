@@ -5,7 +5,6 @@ import { Star } from "./types.ts";
 
 const updateCommonNameAndInfoURL = async (star: Star) => {
   if (star.commonName === null) {
-    setTimeout(() => {}, 1000);
     let commonName: string = await fetchAndParseHTML(star.isdbURL);
     if (commonName.indexOf("H1") > -1) {
       commonName = commonName.split("H1")[1];
@@ -17,7 +16,6 @@ const updateCommonNameAndInfoURL = async (star: Star) => {
     } else if (star.altName !== null) {
       const altName = star.altName.replace("HIP", "HIC");
       const isdbAltURL = getISDBURL(altName);
-      setTimeout(() => {}, 1000);
       commonName = await fetchAndParseHTML(isdbAltURL);
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
