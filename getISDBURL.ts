@@ -1,4 +1,4 @@
-const getInfoURL = (starName: string): string => {
+const getISDBURL = (starName: string): string => {
   const starNameSplit = starName.split(" ");
   const infoURL =
     `http://www.stellar-database.com/Scripts/search_star.exe?Catalog=${
@@ -7,4 +7,4 @@ const getInfoURL = (starName: string): string => {
   return infoURL;
 };
 
-export default getInfoURL;
+export default getISDBURL;
