@@ -1,3 +1,3 @@
-import updateCommonNamesAndInfoURLs from "../updateCommonNamesAndInfoURLs.ts";
+import updateAllCommonNamesAndInfoURLs from "../updateAllCommonNamesAndInfoURLs.ts";
 
-updateCommonNamesAndInfoURLs();
+updateAllCommonNamesAndInfoURLs();
