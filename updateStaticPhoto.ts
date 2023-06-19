@@ -1,17 +1,18 @@
-import { updateStarStaticPhoto } from "./db.ts";
-import { Star } from "./types.ts";
-import { fetchAndParseJSON } from "./util/fetchAndParse.ts";
+// import { updateStarStaticPhoto } from "./db.ts";
+// import { Coordinates, Star } from "./types.ts";
+// import { fetchAndParseJSON } from "./util/fetchAndParse.ts";
+import { Coordinates } from "./types.ts";
 
-const updateStaticPhoto = async (star: Star) => {
-  if (star.staticPhoto === null) {
-    try {
-      const staticPhoto = await fetchAndParseJSON(star.staticPhotoURL);
-      updateStarStaticPhoto(star, staticPhoto);
-      star.staticPhoto = staticPhoto;
-    } catch (error) {
-      return error;
-    }
-  }
+const updateStaticPhoto = async (coordinates: Coordinates) => {
+  // if (star.staticPhoto === null) {
+  //   try {
+  //     const staticPhoto = await fetchAndParseJSON(star.staticPhotoURL);
+  //     updateStarStaticPhoto(star, staticPhoto);
+  //     star.staticPhoto = staticPhoto;
+  //   } catch (error) {
+  //     return error;
+  //   }
+  // }
 };
 
 export default updateStaticPhoto;
