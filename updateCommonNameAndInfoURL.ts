@@ -6,7 +6,7 @@ import { Star } from "./types.ts";
 const updateCommonNameAndInfoURL = async (star: Star) => {
   if (star.commonName === null) {
     setTimeout(() => {}, 1000);
-    let commonName = await fetchAndParseHTML(star.isdbURL);
+    let commonName: string = await fetchAndParseHTML(star.isdbURL);
     if (commonName.indexOf("H1") > -1) {
       commonName = commonName.split("H1")[1];
       commonName = commonName.slice(1, -2);
