@@ -15,18 +15,20 @@ import { getISDBURL } from "./util/getURL.ts";
 const updateAllCommonNamesAndInfoURLs = async () => {
   // const starCatalog = createStarCatalog();
   const starCatalog = getAllStars();
+  let i = 0;
   for (const star of await starCatalog) {
-    if (star.commonName === null) {
+    if (star.commonName === null && i < 100) {
       setTimeout(() => {}, 1000);
       let commonName: string = await fetchAndParseHTML(star.isdbURL);
       if (commonName.indexOf("H1") > -1) {
         commonName = commonName.split("H1")[1];
         commonName = commonName.slice(1, -2);
         updateStarCommonName(star, commonName);
-        star.commonName = commonName;
+        // star.commonName = commonName;
         // updateStarInfoURL(star, isdbURL);
         // star.infoURL = isdbURL;
-      } else if (star.altName !== null) {
+        i++;
+      } else if (star.altName !== null && i < 100) {
         const altName = star.altName.replace("HIP", "HIC");
         const isdbAltURL = getISDBURL(altName);
         setTimeout(() => {}, 1000);
@@ -35,9 +37,10 @@ const updateAllCommonNamesAndInfoURLs = async () => {
           commonName = commonName.split("H1")[1];
           commonName = commonName.slice(1, -2);
           updateStarCommonName(star, commonName);
-          star.commonName = commonName;
+          // star.commonName = commonName;
           // updateStarInfoURL(star, isdbAltURL);
           // star.infoURL = isdbURL;
+          i++;
         }
       }
     }
