@@ -12,6 +12,8 @@ interface Star {
   infoURL: string | null;
   isdbURL: string | null;
   universeGuideURL: string | null;
+  staticPhoto: File;
+  staticPhotoURL: string;
 }
 
 interface StarCrossingData {
