@@ -9,10 +9,11 @@ interface Star {
   name: string;
   altName: string | null;
   commonName: string | null;
-  infoURL: string | null;
+  infoURL: string;
   isdbURL: string;
   universeGuideURL: string;
-  staticPhoto: object | null;
+  skyMapURL: string;
+  staticPhoto: JSON | null;
   staticPhotoURL: string;
 }
 
@@ -20,6 +21,7 @@ interface StarCrossingData {
   coordinates: Coordinates;
   infoURL: string;
   skyMapURL: string;
+  staticPhoto: JSON | null;
   staticPhotoURL: string;
   closestStarName: string;
   closestStarCommonName: string;

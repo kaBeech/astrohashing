@@ -1,30 +1,22 @@
 import getClosestStar from "./getClosestStar.ts";
-import { getSkyMapURL } from "./util/getURL.ts";
 import getStarCrossing from "./getStarCrossing.ts";
 import { Coordinates, Star, StarCrossingData } from "./types.ts";
 
-const getStarCrossingDataByBirthdays = async (
+const getStarCrossingDataByBirthdays = (
   birthdays: string,
-): Promise<StarCrossingData> => {
+): StarCrossingData => {
   const starCrossing: Coordinates = getStarCrossing(birthdays);
-  const closestStar: Star = await getClosestStar(starCrossing);
-  let infoURL = null;
-  // if (closestStar.infoURL !== null) infoURL = closestStar.infoURL;
-  // else {
-  infoURL =
-    `https://duckduckgo.com/?q=!ducky+site%3Awww.universeguide.com+star+${
-      closestStar.name.split(" ")[0]
-    }+${closestStar.name.split(" ")[1]}`;
-  // }
-  const skyMapURL = getSkyMapURL(starCrossing);
+  const closestStar: Star = getClosestStar(starCrossing);
   const starCrossingData: StarCrossingData = {
     coordinates: starCrossing,
-    infoURL,
-    skyMapURL,
+    skyMapURL: closestStar.skyMapURL,
+    staticPhotoURL: closestStar.staticPhotoURL,
+    staticPhoto: closestStar.staticPhoto,
     closestStarName: String(closestStar.name),
     closestStarCommonName: String(closestStar.commonName),
+    infoURL: closestStar.infoURL,
   };
-  return starCrossingData as StarCrossingData;
+  return starCrossingData;
 };
 
 export default getStarCrossingDataByBirthdays;

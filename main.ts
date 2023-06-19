@@ -35,9 +35,9 @@ router.get("/star-catalog", async (ctx: Context) => {
   ctx.response.body = await getAllStars();
 });
 
-router.get("/star-crossings/:birthdays", async (ctx: Context) => {
+router.get("/star-crossings/:birthdays", (ctx: Context) => {
   const { birthdays } = getQuery(ctx, { mergeParams: true });
-  ctx.response.body = await getStarCrossingDataByBirthdays(birthdays);
+  ctx.response.body = getStarCrossingDataByBirthdays(birthdays);
 });
 
 const app = new Application();

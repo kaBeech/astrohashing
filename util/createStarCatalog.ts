@@ -2,6 +2,7 @@ import { Ascension, Coordinates, Declination, Star } from "../types.ts";
 import convertMultiLineFileToArray from "./convertFileToArray.ts";
 import {
   getISDBURL,
+  getSkyMapURL,
   getStaticPhotoURL,
   getUniverseGuideURL,
 } from "./getURL.ts";
@@ -63,6 +64,7 @@ const createStarCatalog = (): Star[] => {
       universeGuideURL: universeGuideURL,
       staticPhoto: null,
       staticPhotoURL: getStaticPhotoURL(starCoordinates),
+      skyMapURL: getSkyMapURL(starCoordinates),
     };
     if (!starNames.includes(starFormatted.name)) {
       starNames.push(starFormatted.name);

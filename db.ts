@@ -140,7 +140,7 @@ export async function updateStarUniverseGuideURL(
 
 export async function updateStarStaticPhoto(
   star: Star,
-  staticPhoto: object,
+  staticPhoto: JSON,
 ) {
   star.staticPhoto = staticPhoto;
   const starKey = ["star", star.name];
