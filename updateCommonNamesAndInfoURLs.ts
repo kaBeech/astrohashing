@@ -1,6 +1,6 @@
 import { updateStarCommonName, updateStarInfoURL } from "./db.ts";
-import getFallbackURL from "./getISDBURL.ts";
 import getISDBURL from "./getISDBURL.ts";
+import getUniverseGuideURL from "./getUniverseGuideURL.ts";
 import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
 import getStarCatalog from "./util/getStarCatalog.ts";
 
@@ -11,7 +11,7 @@ const updateCommonNamesAndInfoURLs = async () => {
     // if (i < 10) {
     if (star.commonName === null) {
       const infoURL = getISDBURL(star.name);
-      const fallbackURL = getFallbackURL(star.name);
+      const universeGuideURL = getUniverseGuideURL(star.name);
       setTimeout(() => {}, 1000);
       let commonName = await fetchAndParseHTML(infoURL);
       if (commonName.indexOf("H1") > -1) {
@@ -35,8 +35,8 @@ const updateCommonNamesAndInfoURLs = async () => {
           star.infoURL = infoAltURL;
         }
       } else {
-        updateStarInfoURL(star, fallbackURL);
-        star.infoURL = fallbackURL;
+        updateStarInfoURL(star, universeGuideURL);
+        star.infoURL = universeGuideURL;
       }
       // i++;
     }
