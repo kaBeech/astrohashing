@@ -1,9 +1,9 @@
 // import { updateStarStaticPhoto } from "./db.ts";
 // import { Coordinates, Star } from "./types.ts";
 // import { fetchAndParseJSON } from "./util/fetchAndParse.ts";
-import { Coordinates } from "./types.ts";
 
-const updateStaticPhoto = async (coordinates: Coordinates) => {
+const updateStaticPhoto = async () => {
+  // const updateStaticPhoto = async (coordinates: Coordinates) => {
   // if (star.staticPhoto === null) {
   //   try {
   //     const staticPhoto = await fetchAndParseJSON(star.staticPhotoURL);
