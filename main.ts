@@ -11,11 +11,13 @@ import createStarCatalog from "./util/createStarCatalog.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 
 // Populate DB
+const starCatalog = await getAllStars();
+if (starCatalog.length < 3) {
+  const createdStarCatalog = createStarCatalog();
 
-const starCatalog = createStarCatalog();
-
-for (const star of starCatalog) {
-  upsertStar(star);
+  for (const star of createdStarCatalog) {
+    upsertStar(star);
+  }
 }
 
 // Update commonNames and infoURLs
