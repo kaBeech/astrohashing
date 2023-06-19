@@ -5,17 +5,17 @@ import { getISDBURL, getUniverseGuideURL } from "./getURL.ts";
 const starsRaw = await convertMultiLineFileToArray("./starData/table1.dat");
 
 const getStarName = (rawStar: string): string => {
-  const starSplit = rawStar.split(" ");
-  const starName = `${starSplit[0]} ${starSplit[1]}`;
+  const nameSlice = rawStar.slice(0, 21);
+  const starName = nameSlice.trim();
   return starName;
 };
 
 const getStarAltName = (rawStar: string): string | null => {
   const altNameSlice = rawStar.slice(22, 35);
-  const altNameSplit = altNameSlice.split(" ");
+  const altNameTrimmed = altNameSlice.trim();
   let starAltName = null;
-  if (altNameSplit.length < 10) {
-    starAltName = `${altNameSplit[0]} ${altNameSplit[1]}`;
+  if (altNameTrimmed.length > 0) {
+    starAltName = altNameTrimmed;
   }
   return starAltName;
 };
