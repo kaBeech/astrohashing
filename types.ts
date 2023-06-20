@@ -24,4 +24,16 @@ interface StarCrossingData {
   closestStarCommonName: string;
 }
 
-export type { Ascension, Coordinates, Declination, Star, StarCrossingData };
+interface StaticPhoto {
+  birthdays: string;
+  staticPhoto: JSON;
+}
+
+export type {
+  Ascension,
+  Coordinates,
+  Declination,
+  Star,
+  StarCrossingData,
+  StaticPhoto,
+};

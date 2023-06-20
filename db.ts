@@ -2,7 +2,9 @@
  * Open KV.
  */
 
-import { Star } from "./types.ts";
+import fetchStaticPhoto from "./fetchStaticPhoto.ts";
+import { Coordinates, Star, StaticPhoto } from "./types.ts";
+import { getStaticPhotoURL } from "./util/getURL.ts";
 
 const kv = await Deno.openKv();
 
@@ -157,3 +159,62 @@ export async function updateStarUniverseGuideURL(
 //     if (!ok) throw new Error("Something went wrong.");
 //   }
 // }
+
+/**
+ * Get and populate staticPhoto.
+ * @param staticPhoto
+ */
+
+export async function getAndPopulateStaticPhoto(
+  birthdays: string,
+  coordinates: Coordinates,
+) {
+  const staticPhotoKey = ["staticPhoto", birthdays];
+
+  const oldStaticPhoto = await kv.get<StaticPhoto>(staticPhotoKey);
+
+  if (!oldStaticPhoto.value) {
+    const staticPhoto: StaticPhoto = {
+      birthdays: birthdays,
+      staticPhoto: await fetchStaticPhoto(getStaticPhotoURL(coordinates)),
+    };
+    const ok = await kv.atomic()
+      .check(oldStaticPhoto)
+      .set(staticPhotoKey, staticPhoto)
+      .commit();
+    if (!ok) throw new Error("Something went wrong.");
+    return;
+  } else {
+    return oldStaticPhoto;
+  }
+}
+
+/**
+ * Get all staticPhotos
+ * @returns <StaticPhoto>
+ */
+
+export async function getAllStaticPhotos() {
+  const staticPhotos = [];
+  for await (const res of kv.list({ prefix: ["staticPhoto"] })) {
+    staticPhotos.push(res.value);
+  }
+  return staticPhotos;
+}
+
+/**
+ * Get staticPhoto.
+ * @param staticPhoto
+ */
+
+export async function getStaticPhoto(birthdays: string) {
+  const staticPhotoKey = ["staticPhoto", birthdays];
+
+  const staticPhotoInDB = await kv.get<StaticPhoto>(staticPhotoKey);
+
+  if (!staticPhotoInDB.value) {
+    return null;
+  } else {
+    return staticPhotoInDB;
+  }
+}
