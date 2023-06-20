@@ -2,7 +2,9 @@ import { Ascension, Coordinates, Declination, Star } from "../types.ts";
 import convertMultiLineFileToArray from "./convertFileToArray.ts";
 import { getISDBURL, getUniverseGuideURL } from "./getURL.ts";
 
-const starsRaw = await convertMultiLineFileToArray("./starData/table1.dat");
+const starsRaw = await convertMultiLineFileToArray(
+  "./starData/cdsarc/table1.dat",
+);
 
 const getStarName = (rawStar: string): string => {
   const nameSlice = rawStar.slice(0, 21);
