@@ -183,7 +183,7 @@ export async function getAndPopulateStaticPhoto(
       .set(staticPhotoKey, staticPhoto)
       .commit();
     if (!ok) throw new Error("Something went wrong.");
-    return;
+    return staticPhoto.staticPhoto;
   } else {
     return oldStaticPhoto;
   }
