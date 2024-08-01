@@ -55,7 +55,7 @@ export async function getAllStars() {
 export async function getAllStarCoordinates() {
   const stars = [];
   for await (const res of kv.list({ prefix: ["star"] })) {
-    stars.push({ coordinates: res.value.coordinates, name: res.value.name });
+    stars.push({ coordinates: res.value.coordinates, name: res.value.name, commonName: res.value.commonName });
   }
   return stars;
 }
