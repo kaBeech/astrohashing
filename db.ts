@@ -48,6 +48,36 @@ export async function getAllStars() {
 }
 
 /**
+ * Get all star coordinates.
+ * @returns <Star>
+ */
+
+export async function getAllStarCoordinates() {
+  const stars = [];
+  for await (const res of kv.list({ prefix: ["star"] })) {
+    stars.push({ coordinates: res.value.coordinates, name: res.value.name });
+  }
+  return stars;
+}
+
+/**
+ * Get a star by name.
+ * @returns <Star>
+ */
+
+export async function getStarByName(name: string) {
+  const starKey = ["star", name];
+
+  const star = await kv.get<Star>(starKey);
+
+  if (!star.value) {
+    return null;
+  } else {
+    return star;
+  }
+}
+
+/**
  * Delete all stars.
  */
 
