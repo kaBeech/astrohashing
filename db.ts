@@ -2,7 +2,7 @@
  * Open KV.
  */
 
-import fetchStaticPhoto from "./fetchStaticPhoto.ts";
+import fetchStaticPhoto from "./components/fetchStaticPhoto.ts";
 import { Coordinates, Star, StaticPhoto } from "./types.ts";
 import { getStaticPhotoURL } from "./util/getURL.ts";
 

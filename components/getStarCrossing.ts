@@ -1,7 +1,7 @@
-import { Coordinates } from "./types.ts";
-import convertMonthAndDayToDayOfYear from "./util/convertMonthAndDayToDayOfYear.ts";
-import convertDayToAscension from "./util/convertDayToAscension.ts";
-import convertDayToDeclination from "./util/convertDayToDeclination.ts";
+import { Coordinates } from "../types.ts";
+import convertMonthAndDayToDayOfYear from "../util/convertMonthAndDayToDayOfYear.ts";
+import convertDayToAscension from "../util/convertDayToAscension.ts";
+import convertDayToDeclination from "../util/convertDayToDeclination.ts";
 
 // birthdays is expected to be a pair or birthdays in this format: 'yyyy-mm-dd,yyyy-mm-dd'
 // Year in birthdays is unused

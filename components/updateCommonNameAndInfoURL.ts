@@ -1,7 +1,7 @@
-import { updateStarCommonName } from "./db.ts";
-import { getISDBURL } from "./util/getURL.ts";
-import { fetchAndParseHTML } from "./util/fetchAndParse.ts";
-import { Star } from "./types.ts";
+import { updateStarCommonName } from "../db.ts";
+import { getISDBURL } from "../util/getURL.ts";
+import { fetchAndParseHTML } from "../util/fetchAndParse.ts";
+import { Star } from "../types.ts";
 
 const updateCommonNameAndInfoURL = async (star: Star) => {
   if (star.commonName === null) {

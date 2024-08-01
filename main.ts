@@ -4,7 +4,7 @@ import {
   helpers,
   Router,
 } from "https://deno.land/x/oak@v12.4.0/mod.ts";
-import getStarCrossingDataByBirthdays from "./getStarCrossingDataByBirthdays.ts";
+import getStarCrossingDataByBirthdays from "./components/getStarCrossingDataByBirthdays.ts";
 import { getAllStars, upsertStar } from "./db.ts";
 import createStarCatalog from "./util/createStarCatalog.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";

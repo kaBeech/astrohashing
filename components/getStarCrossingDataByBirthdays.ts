@@ -1,7 +1,7 @@
 import getClosestStar from "./getClosestStar.ts";
 import getStarCrossing from "./getStarCrossing.ts";
-import { Coordinates, Star, StarCrossingData } from "./types.ts";
-import { getSkyMapURL, getStaticPhotoURL } from "./util/getURL.ts";
+import { Coordinates, Star, StarCrossingData } from "../types.ts";
+import { getSkyMapURL, getStaticPhotoURL } from "../util/getURL.ts";
 // import updateCommonNameAndInfoURL from "./updateCommonNameAndInfoURL.ts";
 // import updateStaticPhoto from "./updateStaticPhoto.ts";
 

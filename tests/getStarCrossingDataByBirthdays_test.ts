@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.188.0/testing/asserts.ts";
-import getStarCrossingDataByBirthdays from "../getStarCrossingDataByBirthdays.ts";
+import getStarCrossingDataByBirthdays from "../components/getStarCrossingDataByBirthdays.ts";
 
 const birthdays1 = "1960-1-1,1960-7-2";
 const birthdays2 = "1960-1-1,1960-4-17";

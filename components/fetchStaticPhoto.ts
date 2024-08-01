@@ -1,4 +1,4 @@
-import { fetchAndParseJSON } from "./util/fetchAndParse.ts";
+import { fetchAndParseJSON } from "../util/fetchAndParse.ts";
 
 const fetchStaticPhoto = async (staticPhotoURL: string) => {
   try {
