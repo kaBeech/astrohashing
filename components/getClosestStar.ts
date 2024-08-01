@@ -1,4 +1,4 @@
-import { getAllStarCoordinates, getStarByName } from "../db.ts";
+import { getAllStarCoordinates } from "../db.ts";
 import { Coordinates, Star } from "../types.ts";
 import getGreatCircleDistanceBetweenCoordinates from "../util/getGreatCircleDistanceBetweenCoordinates.ts";
 
