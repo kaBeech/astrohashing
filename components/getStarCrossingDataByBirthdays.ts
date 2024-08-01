@@ -3,7 +3,6 @@ import getStarCrossing from "./getStarCrossing.ts";
 import { Coordinates, Star, StarCrossingData } from "../types.ts";
 import { getSkyMapURL, getStaticPhotoURL } from "../util/getURL.ts";
 // import updateCommonNameAndInfoURL from "./updateCommonNameAndInfoURL.ts";
-// import updateStaticPhoto from "./updateStaticPhoto.ts";
 
 const getStarCrossingDataByBirthdays = (
   birthdays: string,
@@ -24,10 +23,6 @@ const getStarCrossingDataByBirthdays = (
   // if (starCrossingData.closestStarCommonName === "null") {
   //   updateCommonNameAndInfoURL(closestStar);
   //   starCrossingData.closestStarCommonName = String(closestStar.commonName);
-  // }
-  // if (starCrossingData.staticPhoto === null) {
-  //   updateStaticPhoto(starCrossingData.coordinates);
-  //   starCrossingData.staticPhoto
   // }
   return starCrossingData;
 };
