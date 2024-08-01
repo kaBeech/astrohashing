@@ -1,5 +1,13 @@
 {
   "tasks": {
     "dev": "deno run --watch --allow-net --allow-read --unstable main.ts"
+  },
+  "deploy": {
+    "project": "edef6a0c-8d70-4827-b312-34289083dcf3",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "main.ts"
   }
 }
