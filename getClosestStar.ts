@@ -6,20 +6,16 @@ const stars: Star[] = await getAllStarCoordinates() as unknown as Star[];
 
 const getClosestStar = (starCrossing: Coordinates) => {
   let closestDistance: number | null = null;
-  let closestStarName: Star | null = null;
+  let closestStar: Star | null = null;
   for (const star of stars) {
     const distance = getGreatCircleDistanceBetweenCoordinates(
       star.coordinates,
       starCrossing,
     );
     if (closestDistance === null || distance < closestDistance) {
-      closestStarName = star;
+      closestStar = star;
       closestDistance = distance;
     }
-  }
-  let closestStar: Star | null = null;
-  if (closestStarName !== null) {
-    closestStar = getStarByName(closestStarName.name) as unknown as Star;
   }
   if (closestStar === null) {
     throw new Error("No stars found");
